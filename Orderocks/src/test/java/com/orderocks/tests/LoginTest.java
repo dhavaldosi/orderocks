@@ -7,8 +7,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import com.orderocks.pages.BaseClass;
 import com.orderocks.pages.LoginPage;
+
+import base.BaseClass;
 
 public class LoginTest extends BaseClass {
 
