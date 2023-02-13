@@ -16,4 +16,15 @@
       </class> <!-- com.orderocks.tests.LoginTest -->
     </classes>
   </test> <!-- Login Test(failed) -->
+  <test thread-count="5" name="Place Order(failed)">
+    <classes>
+      <class name="com.orderocks.tests.OrderTest">
+        <methods>
+          <include name="verifyCreateAnOder"/>
+          <include name="tearDown"/>
+          <include name="initialze"/>
+        </methods>
+      </class> <!-- com.orderocks.tests.OrderTest -->
+    </classes>
+  </test> <!-- Place Order(failed) -->
 </suite> <!-- Failed suite [Suite] -->

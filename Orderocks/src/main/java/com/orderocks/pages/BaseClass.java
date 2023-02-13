@@ -11,6 +11,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class BaseClass {
 
@@ -23,9 +25,9 @@ public class BaseClass {
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\resources\\config.properties");
 		prop.load(fis);
 		if (prop.getProperty("browser").equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "\\resources\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+			 
 		}
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

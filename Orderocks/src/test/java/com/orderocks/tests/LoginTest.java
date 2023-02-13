@@ -24,7 +24,7 @@ public class LoginTest extends BaseClass {
 	@Test
 	public void verifyLogin() throws IOException {
 		LoginPage login = new LoginPage(driver);
-		Assert.assertEquals(login.getTitle(), "Let's get you started...");
+		Assert.assertEquals(login.getTitle(), "Let's get you started");
 	}
 
 	@AfterTest
