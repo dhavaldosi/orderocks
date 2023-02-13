@@ -1,4 +1,4 @@
-package com.orderocks.pages;
+package base;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,6 +10,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -20,7 +21,6 @@ public class BaseClass {
 	public Properties prop;
 
 	public WebDriver initialzeDriver() throws IOException {
-
 		prop = new Properties();
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\resources\\config.properties");
 		prop.load(fis);
@@ -35,6 +35,8 @@ public class BaseClass {
 		driver.get(prop.getProperty("url"));
 		return driver;
 	}
+	
+	
 
 	public void getScreenShot(String fileName) throws IOException {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);

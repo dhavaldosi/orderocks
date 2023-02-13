@@ -12,9 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage extends BaseClass {
-	
-	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
+public class LoginPage {
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -34,14 +32,13 @@ public class LoginPage extends BaseClass {
 
 	@FindBy(xpath = "//*[@value='Log in']")
 	WebElement loginButton;
-	
+
 	@FindBy(css = "[class='ui-dialog-title']")
 	WebElement dialogTitle;
-	
+
 	public WebElement dialogTitle() {
 		return dialogTitle;
 	}
-	
 
 	public WebElement loginLink() {
 		return loginLink;
@@ -57,15 +54,14 @@ public class LoginPage extends BaseClass {
 
 	public LoginPage clickLoginLink() {
 		click(loginLink);
-		log.info("Login link clicked");
 		return this;
 	}
-	
+
 	public LoginPage clickLoginButton() {
 		click(loginButton);
 		return this;
 	}
-	
+
 	public String getTitle() {
 		waitForelement(dialogTitle);
 		return dialogTitle.getText();
@@ -75,7 +71,7 @@ public class LoginPage extends BaseClass {
 		waitForelement(locator);
 		locator.sendKeys(value);
 	}
-	
+
 	public void click(WebElement locator) {
 		try {
 			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
@@ -87,7 +83,6 @@ public class LoginPage extends BaseClass {
 		}
 	}
 
-	
 	public void waitForelement(WebElement locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 		locator.click();
