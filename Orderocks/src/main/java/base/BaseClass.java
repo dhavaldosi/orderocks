@@ -6,11 +6,14 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 import org.apache.maven.surefire.shared.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -43,5 +46,26 @@ public class BaseClass {
 		FileUtils.copyFile(src, new File(System.getProperty("user.dir") + "\\screenshots\\" + fileName + "_screenshot_"
 				+ System.currentTimeMillis() + ".png"));
 	}
+	
+	public void waitForelement(WebElement locator) {
+		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
+	}
+	
+	public void click(WebElement locator) {
+		try {
+			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
+			locator.click();
+		} catch (Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(locator));
+			js.executeScript("arguments[0].click();", locator);
+		}
+	}
+	
+	public void sendKeys(WebElement locator, String value) {
+		waitForelement(locator);
+		locator.sendKeys(value);
+	}
+
 
 }

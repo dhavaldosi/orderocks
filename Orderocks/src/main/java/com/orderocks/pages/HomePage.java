@@ -1,16 +1,13 @@
 package com.orderocks.pages;
 
-import java.time.Duration;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage {
+import base.BaseClass;
+
+public class HomePage extends BaseClass {
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -113,12 +110,11 @@ public class HomePage {
 	public void enterValue() {
 		addToCart().click();
 	}
-	
+
 	public HomePage clickSearchBar() {
 		click(searchBar);
 		return this;
 	}
-	
 
 	public HomePage clickZipCodeButton() {
 		click(zipCodeButton);
@@ -139,13 +135,12 @@ public class HomePage {
 		click(getVendor);
 		return this;
 	}
-	
-	
+
 	public HomePage clickBtnSearch() {
 		click(btnSearch);
 		return this;
 	}
-	
+
 	public HomePage selectVendorFromList() {
 		click(selectVendor);
 		return this;
@@ -165,8 +160,6 @@ public class HomePage {
 		click(continueShipping());
 		return this;
 	}
-	
-	
 
 	public HomePage clickAddToCart() {
 		click(addToCart());
@@ -181,22 +174,6 @@ public class HomePage {
 	public HomePage clickOnCart() {
 		click(cart());
 		return this;
-	}
-
-	public void sendKeys(WebElement locator, String value) {
-		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
-		locator.sendKeys(value);
-	}
-
-	public void click(WebElement locator) {
-		try {
-			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
-			locator.click();
-		} catch (Exception e) {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(locator));
-			js.executeScript("arguments[0].click();", locator);
-		}
 	}
 
 }

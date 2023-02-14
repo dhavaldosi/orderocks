@@ -1,17 +1,14 @@
 package com.orderocks.pages;
 
-import java.time.Duration;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CheckOutPage {
+import base.BaseClass;
+
+public class CheckOutPage extends BaseClass {
 
 	public CheckOutPage(WebDriver driver) {
 		this.driver = driver;
@@ -37,14 +34,14 @@ public class CheckOutPage {
 
 	@FindBy(css = "[id='ExpireMonth']")
 	WebElement expireMonth;
-	
+
 	@FindBy(css = "[id='payment-info-buttons-container'] [value='Continue']")
 	WebElement continuePaymentInfo;
 
 	public WebElement expireMonth() {
 		return expireMonth;
 	}
-	
+
 	public WebElement continuePaymentInfo() {
 		return continuePaymentInfo;
 	}
@@ -81,48 +78,20 @@ public class CheckOutPage {
 	}
 
 	public CheckOutPage selectExpireMonth() {
-		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(expireMonth()));
+		waitForelement(expireMonth());
 		Select expireMonth = new Select(expireMonth());
 		expireMonth.selectByVisibleText("05");
 		return this;
 	}
-	
+
 	public CheckOutPage continuePaymentInformation() {
-		clickUsingJs(continuePaymentInfo());
+		click(continuePaymentInfo());
 		return this;
 	}
 
 	public CheckOutPage clickConfirmOrder() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		new WebDriverWait(driver, Duration.ofSeconds(60))
-				.until(ExpectedConditions.elementToBeClickable(confirmOrder()));
-		js.executeScript("arguments[0].click();", confirmOrder());
+		click(confirmOrder());
 		return this;
-	}
-
-	public void sendKeys(WebElement locator, String value) {
-		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
-		locator.sendKeys(value);
-
-	}
-
-	public void click(WebElement locator) {
-		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
-		locator.click();
-	}
-	
-	public void clickUsingJs(WebElement locator) {
-		try
-		{
-		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
-		locator.click();
-		}
-		catch(Exception e)
-		{
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(locator));
-		js.executeScript("arguments[0].click();", locator);
-		}
 	}
 
 }

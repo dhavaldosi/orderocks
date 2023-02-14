@@ -1,15 +1,13 @@
 package com.orderocks.pages;
 
-import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import base.BaseClass;
 
-public class ThankYouPage {
+public class ThankYouPage extends BaseClass {
 
 	public ThankYouPage(WebDriver driver) {
 		this.driver = driver;
@@ -21,14 +19,12 @@ public class ThankYouPage {
 	@FindBy(css = "[class='section order-completed'] [class='title'] strong")
 	WebElement orderStatus;
 
-
 	public WebElement orderStatus() {
 		return orderStatus;
 	}
-	
-	public String getOrderStatus()
-	{
-		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(orderStatus));
+
+	public String getOrderStatus() {
+		waitForelement(orderStatus);
 		return orderStatus.getText();
 	}
 }

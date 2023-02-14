@@ -19,7 +19,6 @@ public class LoginTest extends BaseClass {
 	public void initialze() throws IOException {
 		driver = initialzeDriver();
 		log.info("Driver has initialized.");
-		driver.get(prop.getProperty("url"));
 	}
 
 	@Test

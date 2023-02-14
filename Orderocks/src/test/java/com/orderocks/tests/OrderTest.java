@@ -27,8 +27,6 @@ public class OrderTest extends BaseClass {
 	public void initialze() throws IOException {
 		driver = initialzeDriver();
 		log.info("Driver has initialized.");
-		driver.get(prop.getProperty("url"));
-		log.info("Url has accessed.");
 	}
 
 	@Test
