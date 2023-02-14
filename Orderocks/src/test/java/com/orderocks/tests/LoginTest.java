@@ -21,7 +21,7 @@ public class LoginTest extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test
+	@Test(description = "Login popup title")
 	public void verifyLogin() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		Assert.assertEquals(login.getTitle(), "Let's get you started");

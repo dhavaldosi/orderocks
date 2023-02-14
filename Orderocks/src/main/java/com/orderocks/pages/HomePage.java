@@ -115,6 +115,11 @@ public class HomePage extends BaseClass {
 		clickOnElement(searchBar);
 		return this;
 	}
+	
+	public HomePage searchProduct(String searchProduct) {
+		type(searchBar, searchProduct);
+		return this;
+	}
 
 	public HomePage clickZipCodeButton() {
 		clickOnElement(zipCodeButton);
@@ -136,7 +141,7 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
-	public HomePage clickBtnSearch() {
+	public HomePage clickSearchIcon() {
 		clickOnElement(btnSearch);
 		return this;
 	}

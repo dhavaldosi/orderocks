@@ -1,13 +1,8 @@
 package com.orderocks.tests;
 
 import java.io.IOException;
-import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -29,7 +24,7 @@ public class OrderTest extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test
+	@Test(description = "Process an order")
 	public void verifyCreateAnOder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
@@ -39,9 +34,9 @@ public class OrderTest extends BaseClass {
 		login.email().sendKeys(prop.getProperty("username"));
 		login.password().sendKeys(prop.getProperty("password"));
 		login.clickLoginButton();
-		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar();
-		sendKeys(driver, home.searchBar(), "DEEP FROZEN KESAR MANGO PULP 12OZ");
-		home.clickBtnSearch().clickAddToCart().clickOnCart().clickCheckOut().continueBillingAddress()
+		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
+				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ");
+		home.clickSearchIcon().clickAddToCart().clickOnCart().clickCheckOut().continueBillingAddress()
 				.selectSlotOfDelivery().continueShippingAddress();
 		checkout.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();
@@ -51,10 +46,5 @@ public class OrderTest extends BaseClass {
 	@AfterTest
 	public void tearDown() {
 		driver.close();
-	}
-
-	public static void sendKeys(WebDriver driver, WebElement locator, String value) {
-		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
-		locator.sendKeys(value);
 	}
 }
