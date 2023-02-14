@@ -42,6 +42,11 @@ public class OrderTest extends BaseClass {
 				.continuePaymentInformation().clickConfirmOrder();
 		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully processed!");
 	}
+	
+	@Test(description = "Order Details")
+	public void verifyOderDetails() {
+		//To-Do
+	}
 
 	@AfterTest
 	public void tearDown() {
