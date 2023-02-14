@@ -48,12 +48,12 @@ public class LoginPage extends BaseClass {
 	}
 
 	public LoginPage clickLoginLink() {
-		click(loginLink);
+		clickOnElement(loginLink);
 		return this;
 	}
 
 	public LoginPage clickLoginButton() {
-		click(loginButton);
+		clickOnElement(loginButton);
 		return this;
 	}
 

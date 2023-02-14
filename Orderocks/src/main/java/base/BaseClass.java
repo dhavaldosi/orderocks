@@ -51,7 +51,7 @@ public class BaseClass {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 	}
 	
-	public void click(WebElement locator) {
+	public void clickOnElement(WebElement locator) {
 		try {
 			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 			locator.click();
@@ -62,7 +62,7 @@ public class BaseClass {
 		}
 	}
 	
-	public void sendKeys(WebElement locator, String value) {
+	public void type(WebElement locator, String value) {
 		waitForelement(locator);
 		locator.sendKeys(value);
 	}

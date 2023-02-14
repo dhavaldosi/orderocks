@@ -112,67 +112,67 @@ public class HomePage extends BaseClass {
 	}
 
 	public HomePage clickSearchBar() {
-		click(searchBar);
+		clickOnElement(searchBar);
 		return this;
 	}
 
 	public HomePage clickZipCodeButton() {
-		click(zipCodeButton);
+		clickOnElement(zipCodeButton);
 		return this;
 	}
 
 	public HomePage clickCart() {
-		click(cart);
+		clickOnElement(cart);
 		return this;
 	}
 
 	public HomePage selectGrocery() {
-		click(grocery);
+		clickOnElement(grocery);
 		return this;
 	}
 
 	public HomePage getVendorList() {
-		click(getVendor);
+		clickOnElement(getVendor);
 		return this;
 	}
 
 	public HomePage clickBtnSearch() {
-		click(btnSearch);
+		clickOnElement(btnSearch);
 		return this;
 	}
 
 	public HomePage selectVendorFromList() {
-		click(selectVendor);
+		clickOnElement(selectVendor);
 		return this;
 	}
 
 	public HomePage selectSlotOfDelivery() {
-		click(selectSlot());
+		clickOnElement(selectSlot());
 		return this;
 	}
 
 	public HomePage continueBillingAddress() {
-		click(continueBilling());
+		clickOnElement(continueBilling());
 		return this;
 	}
 
 	public HomePage continueShippingAddress() {
-		click(continueShipping());
+		clickOnElement(continueShipping());
 		return this;
 	}
 
 	public HomePage clickAddToCart() {
-		click(addToCart());
+		clickOnElement(addToCart());
 		return this;
 	}
 
 	public HomePage clickCheckOut() {
-		click(checkOut());
+		clickOnElement(checkOut());
 		return this;
 	}
 
 	public HomePage clickOnCart() {
-		click(cart());
+		clickOnElement(cart());
 		return this;
 	}
 

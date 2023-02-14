@@ -63,17 +63,17 @@ public class CheckOutPage extends BaseClass {
 	}
 
 	public CheckOutPage enterCardHolderName() {
-		sendKeys(cardHolderName, "Dhaval Dosi");
+		type(cardHolderName, "Dhaval Dosi");
 		return this;
 	}
 
 	public CheckOutPage enterCardNumber() {
-		sendKeys(cardNumber, "5105575230210886");
+		type(cardNumber, "5105575230210886");
 		return this;
 	}
 
 	public CheckOutPage entercardCode() {
-		sendKeys(cardCode, "123");
+		type(cardCode, "123");
 		return this;
 	}
 
@@ -85,12 +85,12 @@ public class CheckOutPage extends BaseClass {
 	}
 
 	public CheckOutPage continuePaymentInformation() {
-		click(continuePaymentInfo());
+		clickOnElement(continuePaymentInfo());
 		return this;
 	}
 
 	public CheckOutPage clickConfirmOrder() {
-		click(confirmOrder());
+		clickOnElement(confirmOrder());
 		return this;
 	}
 
