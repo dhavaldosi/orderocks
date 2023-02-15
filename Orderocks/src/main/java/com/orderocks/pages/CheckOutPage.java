@@ -25,6 +25,9 @@ public class CheckOutPage extends BaseClass {
 
 	@FindBy(css = "[id='CardNumber']")
 	WebElement cardNumber;
+	
+	@FindBy(css = "[id='CardNumber']")
+	WebElement demo;
 
 	@FindBy(css = "[id='CardCode']")
 	WebElement cardCode;
@@ -40,6 +43,10 @@ public class CheckOutPage extends BaseClass {
 
 	public WebElement expireMonth() {
 		return expireMonth;
+	}
+	
+	public WebElement demo() {
+		return demo;
 	}
 
 	public WebElement continuePaymentInfo() {
@@ -64,6 +71,11 @@ public class CheckOutPage extends BaseClass {
 
 	public CheckOutPage enterCardHolderName() {
 		type(cardHolderName, "Dhaval Dosi");
+		return this;
+	}
+	
+	public CheckOutPage clickDemo() {
+		clickOnElement(demo);
 		return this;
 	}
 
