@@ -45,7 +45,7 @@ public class OrderTest extends BaseClass {
 	
 	@Test(description = "Order Details")
 	public void verifyOderDetails() {
-		//To-Do
+		
 	}
 
 	@AfterTest
