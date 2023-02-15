@@ -55,6 +55,22 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//*[starts-with(@id,'delivery_slot_body')and not(contains(@style,'display'))]/ul/li[2]/span/label")
 	WebElement pmSlot;
 
+	@FindBy(xpath = "//*[@title='chat widget'][1]")
+	WebElement tawkContainer;
+	
+	@FindBy(xpath = "//*[@title='chat widget'][2]")
+	WebElement tawkAutoMessageContainer;
+
+	@FindBy(css = "svg[alt='Chat icon']")
+	WebElement tawkBubbleContainer;
+
+	@FindBy(css = "[class*='tawk-agent'] span")
+	WebElement tawkAgent;
+
+	public WebElement tawkBubbleContainer() {
+		return tawkBubbleContainer;
+	}
+
 	public WebElement selectSlot() {
 		return pmSlot;
 	}
@@ -115,7 +131,23 @@ public class HomePage extends BaseClass {
 		clickOnElement(searchBar);
 		return this;
 	}
-	
+
+	public HomePage clickTawkBubbleContainer() {
+		waitForelement(tawkContainer);
+		switchToIframe(tawkContainer);
+		clickOnElement(tawkBubbleContainer);
+		switchToDefault();
+		return this;
+	}
+
+	public String getTawkAgentChat() {
+		waitForelement(tawkAutoMessageContainer);
+		switchToIframe(tawkAutoMessageContainer);
+		waitForelement(tawkAgent);
+		return tawkAgent.getText();
+
+	}
+
 	public HomePage searchProduct(String searchProduct) {
 		type(searchBar, searchProduct);
 		return this;
