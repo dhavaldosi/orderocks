@@ -68,12 +68,12 @@ public class BaseClass {
 			log.info("Clicked on using JS : " + locator);
 		}
 	}
-	
+
 	public void normalClickOnElement(WebElement locator) {
-			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
-			new WebDriverWait(driver, Duration.ofSeconds(80)).until(ExpectedConditions.elementToBeClickable(locator));
-			locator.click();
-			log.info("Clicked on :" + locator.toString());
+		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
+		new WebDriverWait(driver, Duration.ofSeconds(80)).until(ExpectedConditions.elementToBeClickable(locator));
+		locator.click();
+		log.info("Clicked on :" + locator.toString());
 	}
 
 	public void type(WebElement locator, String value) {
@@ -87,10 +87,16 @@ public class BaseClass {
 		driver.switchTo().frame(locator);
 		log.info("Switched to frame : " + locator);
 	}
-	
+
 	public void hoverOnElement(WebElement locator) {
 		Actions actions = new Actions(driver);
-	    actions.moveToElement(locator).perform();
+		actions.moveToElement(locator).perform();
+	}
+
+	public void hoverAndClickOnElement(WebElement locator) {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(locator).perform();
+		clickOnElement(locator);
 	}
 
 	public void switchToDefault() {
