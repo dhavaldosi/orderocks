@@ -19,6 +19,33 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//span[text()='Grocery']")
 	WebElement grocery;
 
+	@FindBy(xpath = "//a[text()='Hello, Automation Do not change']")
+	WebElement welComeMessage;
+
+	@FindBy(xpath = "//*[@class='mega-menu'] //span[text()='Manufacturers']")
+	WebElement manufacturers;
+
+	@FindBy(xpath = "//*[@class='mega-menu'] //a[text()='Home page']")
+	WebElement homePage;
+
+	@FindBy(xpath = "//*[@class='mega-menu'] //a[text()='Customer feedback/suggestions']")
+	WebElement customerFeedBack;
+
+	@FindBy(xpath = "//*[@class='mega-menu'] //a[text()='Vendor Agreement']")
+	WebElement vendorsAgreement;
+
+	@FindBy(xpath = "//*[@class='mega-menu'] //a[text()='New products']")
+	WebElement newProducts;
+
+	@FindBy(xpath = "//*[@class='mega-menu'] //span[text()='      Store   ']")
+	WebElement store;
+
+	@FindBy(css = "[class='mega-menu'] [id='ZipCodeVal']")
+	WebElement zipCodeVal;
+
+	@FindBy(css = "[class='page-title'] h1")
+	WebElement pageTitle;
+
 	@FindBy(css = "[id='set-zipcode-button']")
 	WebElement zipCodeButton;
 
@@ -57,11 +84,10 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//*[@title='chat widget'][1]")
 	WebElement tawkContainer;
-	
+
 	@FindBy(css = "div[id='vendor-banner-slider'] [class='slick-prev slick-arrow']")
 	WebElement previousButton;
-	
-	
+
 	@FindBy(xpath = "//*[@title='chat widget'][2]")
 	WebElement tawkAutoMessageContainer;
 
@@ -136,6 +162,31 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
+	public HomePage clickManufacturers() {
+		clickOnElement(manufacturers);
+		return this;
+	}
+
+	public HomePage clickCustomerFeedBack() {
+		clickOnElement(customerFeedBack);
+		return this;
+	}
+
+	public HomePage clickVendorsAgreement() {
+		clickOnElement(vendorsAgreement);
+		return this;
+	}
+
+	public HomePage clickNewProducts() {
+		clickOnElement(newProducts);
+		return this;
+	}
+
+	public HomePage clickZipCodeVal() {
+		clickOnElement(zipCodeVal);
+		return this;
+	}
+
 	public HomePage clickTawkBubbleContainer() {
 		waitForelement(tawkContainer);
 		switchToIframe(tawkContainer);
@@ -166,14 +217,12 @@ public class HomePage extends BaseClass {
 		hoverAndClickOnElement(previousButton);
 		return this;
 	}
-	
-	
-	
+
 	public HomePage clickCart() {
 		clickOnElement(cart);
 		return this;
 	}
-	
+
 	public HomePage selectGrocery() {
 		clickOnElement(grocery);
 		return this;
@@ -222,6 +271,14 @@ public class HomePage extends BaseClass {
 	public HomePage clickOnCart() {
 		clickOnElement(cart());
 		return this;
+	}
+
+	public String getPageTitle() {
+		return pageTitle.getText();
+	}
+
+	public boolean isWelComeMessagePresent() {
+		return elementIsPresent(welComeMessage);
 	}
 
 }
