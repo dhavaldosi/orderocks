@@ -15,9 +15,9 @@ import com.orderocks.pages.ThankYouPage;
 
 import base.BaseClass;
 
-public class HomeTest extends BaseClass {
+public class PreviousTest extends BaseClass {
 
-	public static Logger log = LogManager.getLogger(HomeTest.class.getName());
+	public static Logger log = LogManager.getLogger(PreviousTest.class.getName());
 
 	@BeforeTest
 	public void initialze() throws IOException {
@@ -30,13 +30,10 @@ public class HomeTest extends BaseClass {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		login.clickLoginLink();
-//		login.email().sendKeys(prop.getProperty("username"));
-//		login.password().sendKeys(prop.getProperty("password"));
-//		login.clickLoginButton();
-		home.clickTawkBubbleContainer();
-		Assert.assertEquals(
-				"Welcome to our site, if you need help simply reply to this message, we are online and ready to help.",
-				home.clickPreviousButton());
+		login.email().sendKeys(prop.getProperty("username"));
+		login.password().sendKeys(prop.getProperty("password"));
+		login.clickLoginButton();
+		home.clickPreviousButton();
 	}
 
 	@AfterTest
