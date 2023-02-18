@@ -31,6 +31,7 @@ public class CheckOutPage extends BaseClass {
 
 	@FindBy(css = "[id='CardCode']")
 	WebElement cardCode;
+	
 
 	@FindBy(css = "[class*='confirm-order']")
 	WebElement confirm;
