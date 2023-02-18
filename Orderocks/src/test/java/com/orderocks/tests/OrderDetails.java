@@ -14,7 +14,7 @@ import com.orderocks.pages.ThankYouPage;
 
 import base.BaseClass;
 
-public class OrderTest extends BaseClass {
+public class OrderDetails extends BaseClass {
 
 	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 
@@ -24,8 +24,8 @@ public class OrderTest extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test(description = "Process an order")
-	public void verifyCreateAnOder() {
+	@Test(description = "Order Details")
+	public void verifyOrderDetails() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		ThankYouPage thankyou = new ThankYouPage(driver);
@@ -40,12 +40,12 @@ public class OrderTest extends BaseClass {
 				.selectSlotOfDelivery().continueShippingAddress();
 		checkout.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();
-		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully processed!");
+		thankyou.clickConfirmOrder();
+		Assert.assertEquals(thankyou.getProductName(), "DEEP FROZEN KESAR MANGO PULP 12OZ");
 	}
 	
 	@Test(description = "Order Details")
 	public void verifyOderDetails() {
-		
 		
 	}
 		

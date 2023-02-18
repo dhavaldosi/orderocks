@@ -9,7 +9,7 @@
     <classes>
       <class name="com.orderocks.tests.OrderTest">
         <methods>
-          <include name="verifyCreateAnOder"/>
+          <include name="verifyOderDetails"/>
           <include name="tearDown"/>
           <include name="initialze"/>
         </methods>

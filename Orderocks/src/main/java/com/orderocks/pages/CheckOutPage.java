@@ -40,13 +40,11 @@ public class CheckOutPage extends BaseClass {
 
 	@FindBy(css = "[id='payment-info-buttons-container'] [value='Continue']")
 	WebElement continuePaymentInfo;
+	
+	
 
 	public WebElement expireMonth() {
 		return expireMonth;
-	}
-	
-	public WebElement demo() {
-		return demo;
 	}
 
 	public WebElement continuePaymentInfo() {
@@ -68,9 +66,9 @@ public class CheckOutPage extends BaseClass {
 	public WebElement confirmOrder() {
 		return confirm;
 	}
-
+	
 	public CheckOutPage enterCardHolderName() {
-		type(cardHolderName, "Dhaval Dosi");
+		type(cardHolderName,"Dhaval Dosi");
 		return this;
 	}
 	
@@ -89,6 +87,7 @@ public class CheckOutPage extends BaseClass {
 		return this;
 	}
 
+	
 	public CheckOutPage selectExpireMonth() {
 		waitForelement(expireMonth());
 		Select expireMonth = new Select(expireMonth());
@@ -105,5 +104,9 @@ public class CheckOutPage extends BaseClass {
 		clickOnElement(confirmOrder());
 		return this;
 	}
+	
+	
+
+	
 
 }

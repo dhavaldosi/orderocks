@@ -18,6 +18,21 @@ public class ThankYouPage extends BaseClass {
 
 	@FindBy(css = "[class='section order-completed'] [class='title'] strong")
 	WebElement orderStatus;
+	
+	@FindBy(css= "[class='details-link'] a")
+	WebElement orderDetails;
+	
+	@FindBy(css= "[class='product'] a")
+	WebElement ProductName;
+	
+	public ThankYouPage clickConfirmOrder() {
+		clickOnElement(orderDetails);
+        return this;
+}
+	
+	public String getProductName() {
+        return ProductName.getText();
+}
 
 	public WebElement orderStatus() {
 		return orderStatus;
@@ -27,4 +42,6 @@ public class ThankYouPage extends BaseClass {
 		waitForelement(orderStatus);
 		return orderStatus.getText();
 	}
+
+	
 }
