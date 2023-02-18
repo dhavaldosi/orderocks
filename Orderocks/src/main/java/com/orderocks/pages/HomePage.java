@@ -58,6 +58,11 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//*[@title='chat widget'][1]")
 	WebElement tawkContainer;
 	
+	@FindBy(css = "[class='slick-prev slick-arrow']")
+	WebElement previousButton;
+	
+	
+	
 	@FindBy(xpath = "//*[@title='chat widget'][2]")
 	WebElement tawkAutoMessageContainer;
 
@@ -160,6 +165,11 @@ public class HomePage extends BaseClass {
 
 	public HomePage clickCart() {
 		clickOnElement(cart);
+		return this;
+	}
+	
+	public HomePage clickPreviousButton() {
+		hoverAndClickOnElement(previousButton);
 		return this;
 	}
 
