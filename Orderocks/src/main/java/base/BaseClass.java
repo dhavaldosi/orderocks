@@ -103,5 +103,10 @@ public class BaseClass {
 		driver.switchTo().defaultContent();
 		log.info("Switched to default frame");
 	}
+	
+	public boolean elementIsPresent(WebElement locator) {
+		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
+		return locator.isDisplayed();
+	}
 
 }
