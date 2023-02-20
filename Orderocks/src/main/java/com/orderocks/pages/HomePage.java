@@ -96,65 +96,33 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[class*='tawk-agent'] span")
 	WebElement tawkAgent;
-
-	public WebElement tawkBubbleContainer() {
-		return tawkBubbleContainer;
+	
+	@FindBy(css = "[class='category-navigation-title']")
+	WebElement allCategories;
+	
+	@FindBy(xpath = "//ul[@id='ul-category-navigation']//a[text()='Milk Products']")
+	WebElement milkProducts;
+	
+	@FindBy(xpath = "//ul[@id='ul-category-navigation']//a[text()='Desserts']")
+	WebElement desserts;
+	
+	public HomePage hoverAllCategories() {
+		hoverOnElement(allCategories);
+		return this;
 	}
-
-	public WebElement selectSlot() {
-		return pmSlot;
+	
+	public HomePage clickMilkProducts() {
+		hoverAndClickOnElement(milkProducts);
+		return this;
 	}
-
-	public WebElement continueBilling() {
-		return continueBilling;
-	}
-
-	public WebElement continuePaymentInfo() {
-		return continuePaymentInfo;
-	}
-
-	public WebElement continueShipping() {
-		return continueShipping;
-	}
-
-	public WebElement checkOut() {
-		return checkOut;
-	}
-
-	public WebElement grocery() {
-		return grocery;
-	}
-
-	public WebElement getVendor() {
-		return getVendor;
-	}
-
-	public WebElement selectVendor() {
-		return selectVendor;
-	}
-
-	public WebElement searchBar() {
-		return searchBar;
-	}
-
-	public WebElement zipCodeButton() {
-		return zipCodeButton;
-	}
-
-	public WebElement btnSearch() {
-		return btnSearch;
-	}
-
-	public WebElement addToCart() {
-		return addToCart;
-	}
-
-	public WebElement cart() {
-		return cart;
+	
+	public HomePage clickDesserts() {
+		hoverAndClickOnElement(desserts);
+		return this;
 	}
 
 	public void enterValue() {
-		addToCart().click();
+		addToCart.click();
 	}
 
 	public HomePage clickSearchBar() {
@@ -243,33 +211,18 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
-	public HomePage selectSlotOfDelivery() {
-		clickOnElement(selectSlot());
-		return this;
-	}
-
-	public HomePage continueBillingAddress() {
-		clickOnElement(continueBilling());
-		return this;
-	}
-
-	public HomePage continueShippingAddress() {
-		clickOnElement(continueShipping());
-		return this;
-	}
-
 	public HomePage clickAddToCart() {
-		clickOnElement(addToCart());
+		clickOnElement(addToCart);
 		return this;
 	}
 
 	public HomePage clickCheckOut() {
-		clickOnElement(checkOut());
+		clickOnElement(checkOut);
 		return this;
 	}
 
 	public HomePage clickOnCart() {
-		clickOnElement(cart());
+		clickOnElement(cart);
 		return this;
 	}
 

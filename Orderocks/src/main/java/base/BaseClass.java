@@ -26,7 +26,7 @@ public class BaseClass {
 	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 
 	public static WebDriver driver;
-	public Properties prop;
+	public static Properties prop;
 
 	public WebDriver initialzeDriver() throws IOException {
 		prop = new Properties();
@@ -59,13 +59,13 @@ public class BaseClass {
 		try {
 			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 			locator.click();
-			log.info("Clicked on :" + locator.toString());
+			
 		} catch (Exception e) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(locator));
 			js.executeScript("arguments[0].click();", locator);
-			log.info("Clicked on using JS : " + locator);
+			
 		}
 	}
 
@@ -73,19 +73,19 @@ public class BaseClass {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 		new WebDriverWait(driver, Duration.ofSeconds(80)).until(ExpectedConditions.elementToBeClickable(locator));
 		locator.click();
-		log.info("Clicked on :" + locator.toString());
+		
 	}
 
 	public void type(WebElement locator, String value) {
 		waitForelement(locator);
 		locator.sendKeys(value);
-		log.info("Entered value in :" + locator);
+		
 	}
 
 	public void switchToIframe(WebElement locator) {
 		waitForelement(locator);
 		driver.switchTo().frame(locator);
-		log.info("Switched to frame : " + locator);
+		
 	}
 
 	public void hoverOnElement(WebElement locator) {
@@ -101,7 +101,7 @@ public class BaseClass {
 
 	public void switchToDefault() {
 		driver.switchTo().defaultContent();
-		log.info("Switched to default frame");
+		
 	}
 	
 	public boolean elementIsPresent(WebElement locator) {

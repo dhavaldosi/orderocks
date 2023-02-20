@@ -29,9 +29,7 @@ public class PreviousTest extends BaseClass {
 	public void verifyTawk() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
-		login.clickLoginLink();
-		login.email().sendKeys(prop.getProperty("username"));
-		login.password().sendKeys(prop.getProperty("password"));
+		login.clickLoginLink().provideCredentials().clickLoginButton();
 		login.clickLoginButton();
 		home.clickPreviousButton();
 	}

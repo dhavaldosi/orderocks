@@ -30,15 +30,11 @@ public class OrderDetailsTest extends BaseClass {
 		HomePage home = new HomePage(driver);
 		ThankYouPage thankyou = new ThankYouPage(driver);
 		CheckOutPage checkout = new CheckOutPage(driver);
-		login.clickLoginLink();
-		login.email().sendKeys(prop.getProperty("username"));
-		login.password().sendKeys(prop.getProperty("password"));
-		login.clickLoginButton();
+		login.clickLoginLink().provideCredentials().clickLoginButton();
 		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
-				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ");
-		home.clickSearchIcon().clickAddToCart().clickOnCart().clickCheckOut().continueBillingAddress()
-				.selectSlotOfDelivery().continueShippingAddress();
-		checkout.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
+				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ").clickSearchIcon().clickAddToCart().clickOnCart();
+		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Pickup").selectSlotOfDelivery().continueShippingAddress()
+				.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();
 		thankyou.clickConfirmOrder();
 		Assert.assertEquals(thankyou.getProductName(), "DEEP FROZEN KESAR MANGO PULP 12OZ");

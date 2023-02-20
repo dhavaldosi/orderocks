@@ -7,11 +7,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
-import com.orderocks.pages.ThankYouPage;
 
 import base.BaseClass;
 
@@ -29,23 +26,20 @@ public class HomeTest extends BaseClass {
 	public void verifyTawk() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
-		login.clickLoginLink();
-		login.email().sendKeys(prop.getProperty("username"));
-		login.password().sendKeys(prop.getProperty("password"));
-		login.clickLoginButton();
+		login.clickLoginLink().provideCredentials().clickLoginButton();
 		home.clickTawkBubbleContainer();
 		Assert.assertEquals(
 				"Welcome to our site, if you need help simply reply to this message, we are online and ready to help.",
 				home.clickPreviousButton());
 	}
 	
+	
+	
 	@Test(description = "Verify Successul login")
 	public void verifySuccessfulLogin() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
-		login.clickLoginLink();
-		login.email().sendKeys(prop.getProperty("username"));
-		login.password().sendKeys(prop.getProperty("password"));
+		login.clickLoginLink().provideCredentials().clickLoginButton();
 		login.clickLoginButton();
 		Assert.assertTrue(home.isWelComeMessagePresent());
 	}
@@ -54,9 +48,7 @@ public class HomeTest extends BaseClass {
 	public void verifyHeaderTabNavigation() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
-		login.clickLoginLink();
-		login.email().sendKeys(prop.getProperty("username"));
-		login.password().sendKeys(prop.getProperty("password"));
+		login.clickLoginLink().provideCredentials().clickLoginButton();
 		login.clickLoginButton();
 		home.clickManufacturers();
 		Assert.assertEquals(home.getPageTitle(), "Manufacturer List");
@@ -69,6 +61,18 @@ public class HomeTest extends BaseClass {
 		home.clickZipCodeVal();
 		Assert.assertEquals(login.getTitle(), "Let's get you started");
 	}
+	
+	@Test(description = "Verify all categories")
+	public void verifyAllCategories() throws IOException {
+		LoginPage login = new LoginPage(driver);
+		HomePage home = new HomePage(driver);
+		login.clickLoginLink().provideCredentials().clickLoginButton();
+		home.hoverAllCategories().clickMilkProducts();
+		Assert.assertEquals(home.getPageTitle(), "Milk Products");
+		home.hoverAllCategories().clickDesserts();
+		Assert.assertEquals(home.getPageTitle(), "Desserts");
+	}
+	
 
 	@AfterTest
 	public void tearDown() {
