@@ -37,8 +37,8 @@ public class AddingToWishlist extends BaseClass {
        // Assert.assertTrue(home.getwishlist().contains("Amul"));
      }
 
-	/*@AfterTest
+	@AfterTest
 	public void tearDown() {
 		driver.close();
-}*/
+}
 }
