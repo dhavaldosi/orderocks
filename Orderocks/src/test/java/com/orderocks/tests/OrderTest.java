@@ -31,6 +31,7 @@ public class OrderTest extends BaseClass {
 		ThankYouPage thankyou = new ThankYouPage(driver);
 		CheckOutPage checkout = new CheckOutPage(driver);
 		login.clickLoginLink().provideCredentials().clickLoginButton();
+		checkout.clearCartIfProductAlreadyAdded();
 		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
 				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ").clickSearchIcon().clickAddToCart().clickOnCart();
 		checkout.clickCheckOut().continueBillingAddress().selectSlotOfDelivery().continueShippingAddress()

@@ -94,6 +94,12 @@ public class CheckOutPage extends BaseClass {
 
 	@FindBy(xpath = "//input[@value='Add to cart']")
 	WebElement addToCart;
+	
+	@FindBy(xpath = "//span[text()='Clear shopping cart']")
+	WebElement clearShoppingCart;
+	
+	@FindBy(css = "[class='header-logo'] a")
+	WebElement headerLogo;
 
 	@FindBy(css = "[class='cart-qty']")
 	WebElement cart;
@@ -109,6 +115,9 @@ public class CheckOutPage extends BaseClass {
 
 	@FindBy(xpath = "//*[starts-with(@id,'delivery_slot_body')and not(contains(@style,'display'))]/ul/li[2]/span/label")
 	WebElement pmSlot;
+
+	@FindBy(css = "[class='cart-qty']")
+	WebElement cartQty;
 
 	public CheckOutPage clickSearchBar() {
 		clickOnElement(searchBar);
@@ -283,6 +292,15 @@ public class CheckOutPage extends BaseClass {
 			}
 		}
 
+		return this;
+	}
+	
+	public CheckOutPage clearCartIfProductAlreadyAdded() {
+		if (!cartQty.getText().equals("0")) {
+			clickOnElement(cart);
+			clickOnElement(clearShoppingCart);
+			clickOnElement(headerLogo);
+		}
 		return this;
 	}
 
