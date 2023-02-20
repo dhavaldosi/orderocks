@@ -115,6 +115,10 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//ul[@id='ul-category-navigation']//a[text()='Desserts']")
 	WebElement desserts;
 	
+	@FindBy(xpath = "//a[text()='Mythri']")
+	WebElement selectShop;
+
+	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
 		return this;
@@ -262,6 +266,11 @@ public class HomePage extends BaseClass {
 	public String getPageTitle() {
 		return pageTitle.getText();
 	}
+	public HomePage selectShopFromList() {
+		clickOnElement(selectShop);
+		return this;
+	}
+
 
 	public boolean isWelComeMessagePresent() {
 		return elementIsPresent(welComeMessage);
