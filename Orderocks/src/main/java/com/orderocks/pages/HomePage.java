@@ -14,8 +14,6 @@ public class HomePage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	WebDriver driver;
-
 	@FindBy(xpath = "//span[text()='Grocery']")
 	WebElement grocery;
 
@@ -34,13 +32,22 @@ public class HomePage extends BaseClass {
 	@FindBy(css = "[id='btnSearch']")
 	WebElement btnSearch;
 
+	@FindBy(css = "[class='cart-qty']")
+	WebElement cart;
+	
 	@FindBy(xpath = "//input[@value='Add to cart']")
 	WebElement addToCart;
 
-	@FindBy(css = "[class='cart-qty']")
-	WebElement cart;
-
-	@FindBy(css = "[id='checkout']")
+	@FindBy(xpath = "//div[text()='Discount codes and Vouchers']")
+	WebElement discountCodesAndVouchers;
+	
+	@FindBy(css = "[id='giftcardcouponcode']")
+	WebElement giftCardCouponCode;
+	
+	@FindBy(css = "[value='Add']")
+	WebElement add;
+	
+    @FindBy(css = "[id='checkout']")
 	WebElement checkOut;
 
 	@FindBy(css = "[title='Continue']")
@@ -130,7 +137,17 @@ public class HomePage extends BaseClass {
 	public void enterValue() {
 		addToCart().click();
 	}
-
+	
+	
+	public HomePage giftCardCouponCode () {
+		clickOnElement(giftCardCouponCode);
+		return this;
+	}
+	
+	public WebElement add() {
+		return add;
+	}
+	
 	public HomePage clickSearchBar() {
 		clickOnElement(searchBar);
 		return this;
@@ -167,8 +184,6 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 	
-	
-	
 	public HomePage clickCart() {
 		clickOnElement(cart);
 		return this;
@@ -192,6 +207,21 @@ public class HomePage extends BaseClass {
 	public HomePage selectVendorFromList() {
 		clickOnElement(selectVendor);
 		return this;
+	}
+	
+	public HomePage selectDiscountCodesAndVouchers() {
+		clickOnElement(discountCodesAndVouchers);
+		return this; 
+	}
+	
+	public HomePage enterGiftCardCode() {
+		type (giftCardCouponCode, "9c24c57c-803f");
+		return this;
+	}
+
+	public HomePage ClickAdd() {
+		clickOnElement (add);
+		return this; 
 	}
 
 	public HomePage selectSlotOfDelivery() {
