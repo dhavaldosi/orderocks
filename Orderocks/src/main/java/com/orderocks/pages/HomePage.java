@@ -27,10 +27,19 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//a[text()='Konark Groceries']")
 	WebElement selectVendor;
+	
+	@FindBy(xpath = "//a[text()=\"Angel_Market\"]")
+	WebElement selectVendor2;
 
 	@FindBy(css = "[id='small-searchterms']")
 	WebElement searchBar;
-
+	
+	@FindBy(xpath = "//a[text()='Pepsi 2.25 L']")
+	WebElement Product1;
+	
+	@FindBy(xpath = "//*[text()='DEEP FROZEN KESAR MANGO PULP 12OZ']")
+	WebElement Product;
+	
 	@FindBy(css = "[id='btnSearch']")
 	WebElement btnSearch;
 
@@ -66,6 +75,7 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[class*='tawk-agent'] span")
 	WebElement tawkAgent;
+
 
 	public WebElement tawkBubbleContainer() {
 		return tawkBubbleContainer;
@@ -106,7 +116,21 @@ public class HomePage extends BaseClass {
 	public WebElement searchBar() {
 		return searchBar;
 	}
-
+	
+	public String product() {
+		return Product.getText();
+	}
+	public String getproduct() {
+		waitForelement(Product);
+		return Product.getText();
+	}
+	public String product2() {
+		return Product1.getText();
+	}
+	public String getproduct2() {
+		waitForelement(Product1);
+		return Product1.getText();
+	}
 	public WebElement zipCodeButton() {
 		return zipCodeButton;
 	}
@@ -152,7 +176,7 @@ public class HomePage extends BaseClass {
 		type(searchBar, searchProduct);
 		return this;
 	}
-
+	
 	public HomePage clickZipCodeButton() {
 		clickOnElement(zipCodeButton);
 		return this;
@@ -180,6 +204,10 @@ public class HomePage extends BaseClass {
 
 	public HomePage selectVendorFromList() {
 		clickOnElement(selectVendor);
+		return this;
+	}
+	public HomePage selectVendorFromList1() {
+		clickOnElement(selectVendor2);
 		return this;
 	}
 

@@ -1,6 +1,8 @@
 package com.orderocks.tests;
 
 import java.io.IOException;
+import java.time.Duration;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -24,7 +26,7 @@ public class OrderTest extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test(description = "Process an order")
+	@Test(description = "Process an order",priority=2)
 	public void verifyCreateAnOder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
@@ -36,16 +38,30 @@ public class OrderTest extends BaseClass {
 		login.clickLoginButton();
 		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
 				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		Assert.assertEquals(home.getproduct(),"DEEP FROZEN KESAR MANGO PULP 12OZ");
 		home.clickSearchIcon().clickAddToCart().clickOnCart().clickCheckOut().continueBillingAddress()
 				.selectSlotOfDelivery().continueShippingAddress();
+		
 		checkout.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();
 		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully processed!");
 	}
 	
-	@Test(description = "Order Details")
-	public void verifyOderDetails() {
-		//To-Do
+	@Test(description = "compare product", priority=1)
+	public void verifyOderDetails() {LoginPage login = new LoginPage(driver);
+	HomePage home = new HomePage(driver);
+	//ThankYouPage thankyou = new ThankYouPage(driver);
+	//CheckOutPage checkout = new CheckOutPage(driver);
+	login.clickLoginLink();
+	login.email().sendKeys(prop.getProperty("username"));
+	login.password().sendKeys(prop.getProperty("password"));
+	login.clickLoginButton();
+	home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
+			.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ");
+	//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	Assert.assertEquals(home.getproduct(),"DEEP FROZEN KESAR MANGO PULP 12OZ");
+
 	}
 
 	@AfterTest
