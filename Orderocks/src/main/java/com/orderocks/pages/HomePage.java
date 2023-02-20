@@ -115,9 +115,20 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//ul[@id='ul-category-navigation']//a[text()='Desserts']")
 	WebElement desserts;
 	
-	@FindBy(xpath = "//a[text()='Mythri']")
-	WebElement selectShop;
+	@FindBy(xpath = "//*[@id=\"small-search-box-form\"]/span")
+	WebElement searchfield;
 
+	@FindBy(xpath = "//*[text()='Mythri']")
+	WebElement selectShop;
+	
+	@FindBy(css = "[class='button-2 add-to-wishlist-button'] ")
+	WebElement wishlist;
+	
+	@FindBy(css = "[class='ico-wishlist']")
+	WebElement wishlistIcon;
+	
+	@FindBy(css = "a[class='product-name']")
+	WebElement verifywishlist;
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
@@ -270,11 +281,26 @@ public class HomePage extends BaseClass {
 		clickOnElement(selectShop);
 		return this;
 	}
-
-
+	public String getSearchField(){
+		return searchfield.getText();
+	}
+	public HomePage clickWishlist() {
+		clickOnElement(wishlist);
+		return this;
+		
+	}
+	public HomePage clickWishlistIcon() {
+		clickOnElement(wishlistIcon);
+		return this;
+	}
+	public String getwishlist() {
+		return verifywishlist.getText();
+	}
 	public boolean isWelComeMessagePresent() {
 		return elementIsPresent(welComeMessage);
 	}
+
+	
 
 	
 }

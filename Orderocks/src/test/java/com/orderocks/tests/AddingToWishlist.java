@@ -14,7 +14,7 @@ import com.orderocks.pages.ThankYouPage;
 
 import base.BaseClass;
 
-public class VerfiyStore extends BaseClass {
+public class AddingToWishlist extends BaseClass {
 
 	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 
@@ -23,26 +23,8 @@ public class VerfiyStore extends BaseClass {
 		driver = initialzeDriver();
 		log.info("Driver has initialized.");
 	}
-
-
-
-     @Test(description = "search and verify product with mythri",priority=0)
-    public void SearchProduct() {
-    	 LoginPage login = new LoginPage(driver);
- 		HomePage home = new HomePage(driver);
- 		ThankYouPage thankyou = new ThankYouPage(driver);
- 		CheckOutPage checkout = new CheckOutPage(driver);
- 		login.clickLoginLink().provideCredentials().clickLoginButton();
-	home.clickZipCodeButton().selectGrocery().getVendorList().selectShopFromList();
-	;
-      // Assert.assertEquals(home.getSearchField(), "search Mythri");
-	//Assert.assertEquals(thankyou.getNameProduct(), "Amul Ghee/Tuppa, 1 L Pouch");
-}
-     @AfterTest
- 	public void closing() {
- 		driver.close();
- }
-     @Test(description = "Add product into wishlist",priority=1)
+  
+     @Test(description = "Add product into wishlist")
     public void AddToWishlist() {
     	 LoginPage login = new LoginPage(driver);
   		HomePage home = new HomePage(driver);
@@ -50,13 +32,13 @@ public class VerfiyStore extends BaseClass {
   		CheckOutPage checkout = new CheckOutPage(driver);
   		login.clickLoginLink().provideCredentials().clickLoginButton();
  	    home.clickZipCodeButton().selectGrocery().getVendorList().selectShopFromList().searchProduct("Amul Ghee/Tuppa, 1 L Pouch");
-	     home.clickSearchIcon().clickWishlist();
-         
- 	
+	     home.clickSearchIcon().clickWishlist().clickWishlistIcon();
+	     Assert.assertEquals(home.getwishlist(), "Amul Ghee/Tuppa, 1 L Pouch");
+       // Assert.assertTrue(home.getwishlist().contains("Amul"));
      }
 
-	@AfterTest
+	/*@AfterTest
 	public void tearDown() {
 		driver.close();
-}
+}*/
 }
