@@ -37,11 +37,14 @@ public class ReOrder extends BaseClass {
 				.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();
 		thankyou.clickOrderDetails().clickreOrder();
-		//Assert.assertEquals(thankyou.getProductName(), "DEEP FROZEN KESAR MANGO PULP 12OZ");
+		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Delivery").selectSlotOfDelivery().continueShippingAddress()
+		.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
+		.continuePaymentInformation().clickConfirmOrder();
+		
 	}
 
-	/*@AfterTest
+	@AfterTest
 	public void tearDown() {
 		driver.close();
-	}*/
+	}
 }
