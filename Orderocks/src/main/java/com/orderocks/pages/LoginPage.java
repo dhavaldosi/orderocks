@@ -61,4 +61,91 @@ public class LoginPage extends BaseClass {
 		return dialogTitle.getText();
 	}
 
-}
+
+
+//Locators for verify tabs on Home Page
+
+	@FindBy(xpath="//*[@class='mega-menu']//span[text()='Manufacturers']")
+	WebElement manufacturers;
+	
+	@FindBy(xpath="//*[@class='mega-menu']//a[text()='Customer feedback/suggestions']")
+	WebElement customerFeedbackSuggestions;
+	
+	@FindBy(xpath="//*[@class='mega-menu']//a[text()='Home page']")
+	WebElement homePage;
+	
+
+	@FindBy(xpath="//*[@class='mega-menu']//span[text()='Store']")
+	WebElement store;
+	
+	@FindBy(xpath="//*[@class='mega-menu']//a[text()='New products']")
+	WebElement newProducts;
+	
+	@FindBy(xpath="//*[@class='mega-menu']//a[text()='Vendor Agreement']")
+	WebElement vendorAgreement;
+	
+  @FindBy(xpath="//*[@class='mega-menu']//span[@id='ZipCodeVal']")
+	WebElement zipCodeVal;
+  
+  @FindBy(xpath="//*[@class=\"page-title\"]")
+  WebElement manufacturesText;
+  
+  @FindBy(xpath="//*[@id=\"ph-title\"]")
+  WebElement customerfeedbackSuggessionText;
+  
+ //@FindBy(css="a[class='with-subcategories hover']")
+ //WebElement withSubcategoriesHover;
+	
+ /////////////////////////////////////////////////////////////
+
+	
+	public LoginPage clickManufacturers(){
+		clickOnElement(manufacturers);
+		return this;
+	}
+	
+		public LoginPage clickHomePage() {
+		clickOnElement(homePage);
+		return this;
+		
+		}
+   public LoginPage clickCustomerFeedbackSuggestions() {
+	     clickOnElement(customerFeedbackSuggestions);
+			return this;
+		}
+	
+
+	public LoginPage clickNewproducts(){
+		clickOnElement(newProducts);
+		return this;
+	}
+	
+	public LoginPage clickZipCodeVal(){
+		clickOnElement(zipCodeVal);
+		return this;
+	}
+	
+	public LoginPage clickVendorAgreement(){
+		clickOnElement(vendorAgreement);
+		return this;
+	}
+	
+	
+public String getManufacturesText() {
+		waitForelement(manufacturesText);
+		return manufacturesText.getText();
+}	
+	
+	
+	public String getcustomerfeedbackSuggessionText() {			
+		waitForelement(customerfeedbackSuggessionText);
+			return customerfeedbackSuggessionText.getText();
+	
+	}
+	}
+	
+	
+	
+
+
+

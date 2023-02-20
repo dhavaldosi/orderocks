@@ -121,19 +121,16 @@ public class HomePage extends BaseClass {
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
-		log.info("Hovered on allCategories.");
 		return this;
 	}
 	
 	public HomePage clickMilkProducts() {
 		hoverAndClickOnElement(milkProducts);
-		log.info("Clicked on allCategories.");
 		return this;
 	}
 	
 	public HomePage clickDesserts() {
 		hoverAndClickOnElement(desserts);
-		log.info("Clicked on allCategories.");
 		return this;
 	}
 
@@ -279,5 +276,62 @@ public class HomePage extends BaseClass {
 		return elementIsPresent(welComeMessage);
 	}
 
-	
+
+
+//Locators for outOfStockVefification
+
+@FindBy(xpath="//*[@id='ZipCode']")
+WebElement zipCode;
+
+@FindBy(xpath="//span[text()='80134']")
+WebElement zipCodeToLogin;
+
+@FindBy(xpath="//span[text()='Restaurant']")
+WebElement restaurant;
+
+@FindBy(xpath="//a[text()=\"PK Dessert home\"]")
+WebElement pkDessertHome;
+
+@FindBy(xpath=("//*[@class=\"bar-notification error\"]"))
+WebElement barNotificationError;
+
+@FindBy(xpath="//*[@class=\"content\"]")
+WebElement outOfStockText;
+
+//Methods for Out Of Stock Verification
+
+public HomePage clickZipCode() {
+	clickOnElement(zipCode);
+	return this;
 }
+
+	public HomePage clickZipCodeToLogin() {
+		clickOnElement(zipCodeToLogin);
+		return this;
+	}
+	
+	
+	public HomePage enterZipCode() {
+		type(zipCode, "80134");
+		return this;
+	}
+	public HomePage clickRestaurant() {
+		clickOnElement(restaurant);
+		return this;
+	}
+
+	public HomePage selectpkDessertHome() {
+		clickOnElement(pkDessertHome);
+		return this;
+	}
+	
+	
+	public String getOutofstockText() {
+		waitForelement(outOfStockText);
+		return outOfStockText.getText();
+
+	}
+
+	
+	}
+	
