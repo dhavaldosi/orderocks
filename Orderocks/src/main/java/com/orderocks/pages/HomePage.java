@@ -127,6 +127,7 @@ public class HomePage extends BaseClass {
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
+		log.info("Hovered on all categories.");
 		return this;
 	}
 	
@@ -138,11 +139,13 @@ public class HomePage extends BaseClass {
 	
 	public HomePage clickMilkProducts() {
 		hoverAndClickOnElement(milkProducts);
+		log.info("Clicked on milk product.");
 		return this;
 	}
 	
 	public HomePage clickDesserts() {
 		hoverAndClickOnElement(desserts);
+		log.info("Clicked on desserts.");
 		return this;
 	}
 
@@ -152,6 +155,7 @@ public class HomePage extends BaseClass {
 
 	public HomePage giftCardCouponCode () {
 		clickOnElement(giftCardCouponCode);
+		log.info("Clicked on gift card coupon code.");
 		return this;
 	}
 
@@ -161,36 +165,43 @@ public class HomePage extends BaseClass {
 	
 	public HomePage clickSearchBar() {
 		clickOnElement(searchBar);
+		log.info("Clicked on search bar.");
 		return this;
 	}
 	
 	public HomePage clickAccountIcon() {
 		clickOnElement(accountIcon);
+		log.info("Clicked on account icon.");
 		return this;
 	}
 
 	public HomePage clickManufacturers() {
 		clickOnElement(manufacturers);
+		log.info("Clicked on manufacturers.");
 		return this;
 	}
 
 	public HomePage clickCustomerFeedBack() {
 		clickOnElement(customerFeedBack);
+		log.info("Clicked on customer feedback.");
 		return this;
 	}
 
 	public HomePage clickVendorsAgreement() {
 		clickOnElement(vendorsAgreement);
+		log.info("Clicked on vendor agreement.");
 		return this;
 	}
 
 	public HomePage clickNewProducts() {
 		clickOnElement(newProducts);
+		log.info("Clicked on new product.");
 		return this;
 	}
 
 	public HomePage clickZipCodeVal() {
 		clickOnElement(zipCodeVal);
+		log.info("Clicked on zip code val.");
 		return this;
 	}
 
@@ -217,46 +228,55 @@ public class HomePage extends BaseClass {
 
 	public HomePage clickZipCodeButton() {
 		clickOnElement(zipCodeButton);
+		log.info("Clicked on zip code button.");
 		return this;
 	}
 
 	public HomePage clickPreviousButton() {
 		hoverAndClickOnElement(previousButton);
+		log.info("Clicked on privious button.");
 		return this;
 	}
 
 	public HomePage clickCart() {
 		clickOnElement(cart);
+		log.info("Clicked on cart.");
 		return this;
 	}
 
 	public HomePage selectGrocery() {
 		clickOnElement(grocery);
+		log.info("Selected grocery.");
 		return this;
 	}
 
 	public HomePage getVendorList() {
 		clickOnElement(getVendor);
+		log.info("Selected on vendor.");
 		return this;
 	}
 
 	public HomePage clickSearchIcon() {
 		clickOnElement(btnSearch);
+		log.info("Clicked on search icon.");
 		return this;
 	}
 
 	public HomePage selectVendorFromList() {
 		clickOnElement(selectVendor);
+		log.info("Selected vendor from list.");
 		return this;
 	}
 
 	public HomePage clickAddToCart() {
 		clickOnElement(addToCart);
+		log.info("Clicked on add to cart.");
 		return this;
 	}
 	
 	public HomePage selectDiscountCodesAndVouchers() {
 		clickOnElement(discountCodesAndVouchers);
+		log.info("Clicked on discount codes and vouchers.");
 		return this; 
 	}
 
@@ -267,16 +287,19 @@ public class HomePage extends BaseClass {
 
 	public HomePage ClickAdd() {
 		clickOnElement (add);
+		log.info("Clicked on add.");
 		return this; 
 	}
 
 	public HomePage clickCheckOut() {
 		clickOnElement(checkOut);
+		log.info("Clicked on checkout.");
 		return this;
 	}
 
 	public HomePage clickOnCart() {
 		clickOnElement(cart);
+		log.info("Clicked on cart.");
 		return this;
 	}
 
@@ -285,6 +308,7 @@ public class HomePage extends BaseClass {
 	}
 	public HomePage selectShopFromList() {
 		clickOnElement(selectShop);
+		log.info("Selected shop from list.");
 		return this;
 	}
 
@@ -319,11 +343,13 @@ WebElement outOfStockText;
 
 public HomePage clickZipCode() {
 	clickOnElement(zipCode);
+	log.info("Clicked on zip code.");
 	return this;
 }
 
 	public HomePage clickZipCodeToLogin() {
 		clickOnElement(zipCodeToLogin);
+		log.info("Clicked on zip code to login.");
 		return this;
 	}
 	
@@ -334,11 +360,13 @@ public HomePage clickZipCode() {
 	}
 	public HomePage clickRestaurant() {
 		clickOnElement(restaurant);
+		log.info("Clicked on restaurant.");
 		return this;
 	}
 
 	public HomePage selectpkDessertHome() {
 		clickOnElement(pkDessertHome);
+		log.info("Selected pk dessert home.");
 		return this;
 	}
 	
