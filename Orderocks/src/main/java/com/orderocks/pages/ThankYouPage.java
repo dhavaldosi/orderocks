@@ -24,8 +24,6 @@ public class ThankYouPage extends BaseClass {
 	
 	@FindBy(css = "[class='product'] a")
 	WebElement productName;
-	
-	
 
 	public ThankYouPage clickConfirmOrder() {
 		clickOnElement(orderDetails);

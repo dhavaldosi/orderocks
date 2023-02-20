@@ -1,5 +1,9 @@
 package com.orderocks.pages;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import base.BaseClass;
 
 public class LoginPage extends BaseClass {
-
+	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -31,34 +35,29 @@ public class LoginPage extends BaseClass {
 	@FindBy(css = "[class='ui-dialog-title']")
 	WebElement dialogTitle;
 
-	public WebElement dialogTitle() {
-		return dialogTitle;
-	}
-
-	public WebElement loginLink() {
-		return loginLink;
-	}
-
-	public WebElement email() {
-		return email;
-	}
-
-	public WebElement password() {
-		return password;
-	}
-
 	public LoginPage clickLoginLink() {
 		clickOnElement(loginLink);
+		log.info("Clicked on login link.");
 		return this;
 	}
 
 	public LoginPage clickLoginButton() {
 		clickOnElement(loginButton);
+		log.info("Clicked on login button.");
+		return this;
+	}
+	
+	public LoginPage provideCredentials() {
+		email.sendKeys(prop.getProperty("username"));
+		log.info("Entered user name.");
+		password.sendKeys(prop.getProperty("password"));
+		log.info("Entered password.");
 		return this;
 	}
 
 	public String getTitle() {
 		waitForelement(dialogTitle);
+		log.info("Page title is : " +dialogTitle.getText());
 		return dialogTitle.getText();
 	}
 
