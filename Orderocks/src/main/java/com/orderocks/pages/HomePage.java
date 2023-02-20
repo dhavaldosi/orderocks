@@ -63,7 +63,16 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//input[@value='Add to cart']")
 	WebElement addToCart;
+	
+	@FindBy(xpath = "//div[text()='Discount codes and Vouchers']")
+	WebElement discountCodesAndVouchers;
 
+	@FindBy(css = "[id='giftcardcouponcode']")
+	WebElement giftCardCouponCode;
+
+	@FindBy(css = "[value='Add']")
+	WebElement add;
+	
 	@FindBy(css = "[class='cart-qty']")
 	WebElement cart;
 
@@ -125,6 +134,15 @@ public class HomePage extends BaseClass {
 		addToCart.click();
 	}
 
+	public HomePage giftCardCouponCode () {
+		clickOnElement(giftCardCouponCode);
+		return this;
+	}
+
+	public WebElement add() {
+		return add;
+	}
+	
 	public HomePage clickSearchBar() {
 		clickOnElement(searchBar);
 		return this;
@@ -215,6 +233,21 @@ public class HomePage extends BaseClass {
 		clickOnElement(addToCart);
 		return this;
 	}
+	
+	public HomePage selectDiscountCodesAndVouchers() {
+		clickOnElement(discountCodesAndVouchers);
+		return this; 
+	}
+
+	public HomePage enterGiftCardCode() {
+		type (giftCardCouponCode, "9c24c57c-803f");
+		return this;
+	}
+
+	public HomePage ClickAdd() {
+		clickOnElement (add);
+		return this; 
+	}
 
 	public HomePage clickCheckOut() {
 		clickOnElement(checkOut);
@@ -234,4 +267,5 @@ public class HomePage extends BaseClass {
 		return elementIsPresent(welComeMessage);
 	}
 
+	
 }
