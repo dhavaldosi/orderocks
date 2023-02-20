@@ -123,7 +123,18 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(xpath = "//a[text()='Log out']")
 	WebElement logOut;
+	
+	@FindBy(css = "[class='button-2 add-to-wishlist-button'] ")
+	WebElement wishlist;
+	
+	@FindBy(css = "[class='ico-wishlist']")
+	WebElement wishlistIcon;
+	
+	@FindBy(css = "a[class='product-name']")
+	WebElement verifywishlist;
 
+	
+	
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
@@ -348,6 +359,20 @@ public HomePage clickZipCode() {
 		return outOfStockText.getText();
 
 	}
+	//methods for wishlist
+	public HomePage clickWishlist() {
+		clickOnElement(wishlist);
+		return this;
+	}
+
+     public HomePage clickWishlistIcon() {
+		clickOnElement(wishlistIcon);
+		return this;
+	}
+     public String getwishlist() {
+		return verifywishlist.getText();
+	}
+
 
 	
 	}
