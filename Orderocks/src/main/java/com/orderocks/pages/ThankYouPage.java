@@ -22,11 +22,21 @@ public class ThankYouPage extends BaseClass {
 	@FindBy(css = "[class='details-link'] a")
 	WebElement orderDetails;
 	
+	@FindBy(css = "[class='button-1 re-order-button']")
+	WebElement reOrder;
+	
 	@FindBy(css = "[class='product'] a")
 	WebElement productName;
 
 	public ThankYouPage clickOrderDetails() {
+		waitForelement(orderDetails);
 		clickOnElement(orderDetails);
+		return this;
+	}
+	
+	public ThankYouPage clickreOrder() {
+		waitForelement(reOrder);
+		clickOnElement(reOrder);
 		return this;
 	}
 	
@@ -36,6 +46,14 @@ public class ThankYouPage extends BaseClass {
 
 	public WebElement orderStatus() {
 		return orderStatus;
+	}
+	
+	public WebElement orderDetails() {
+		return orderDetails;
+	}
+	
+	public WebElement reOrder() {
+		return reOrder;
 	}
 
 	public String getOrderStatus() {
