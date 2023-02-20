@@ -36,7 +36,7 @@ public class OrderDetailsTest extends BaseClass {
 		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Pickup").selectSlotOfDelivery().continueShippingAddress()
 				.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();
-		thankyou.clickConfirmOrder();
+		thankyou.clickOrderDetails();
 		Assert.assertEquals(thankyou.getProductName(), "DEEP FROZEN KESAR MANGO PULP 12OZ");
 	}
 
