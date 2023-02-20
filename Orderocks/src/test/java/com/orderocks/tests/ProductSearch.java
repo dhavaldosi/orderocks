@@ -7,10 +7,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
-import com.orderocks.pages.ThankYouPage;
 
 import base.BaseClass;
 
@@ -25,11 +23,9 @@ public class ProductSearch extends BaseClass {
 	}
 
 	@Test(description = "Search product")
-	public void verifyCreateAnOder() {
+	public void verifySearchProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
-		ThankYouPage thankyou = new ThankYouPage(driver);
-		CheckOutPage checkout = new CheckOutPage(driver);
 		login.clickLoginLink().provideCredentials().clickLoginButton();
 		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList2().clickSearchBar()
 				.searchProduct("Pepsi 2.25 L").clickSearchIcon();
