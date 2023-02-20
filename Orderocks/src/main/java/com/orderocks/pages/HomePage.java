@@ -117,16 +117,19 @@ public class HomePage extends BaseClass {
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
+		log.info("Hovered on categories.");
 		return this;
 	}
 	
 	public HomePage clickMilkProducts() {
 		hoverAndClickOnElement(milkProducts);
+		log.info("Clicked on mlik products.");
 		return this;
 	}
 	
 	public HomePage clickDesserts() {
 		hoverAndClickOnElement(desserts);
+		log.info("Clicked on Desserts.");
 		return this;
 	}
 
@@ -136,6 +139,7 @@ public class HomePage extends BaseClass {
 
 	public HomePage giftCardCouponCode () {
 		clickOnElement(giftCardCouponCode);
+		log.info("Clicked on gift Card Coupon Code.");
 		return this;
 	}
 
@@ -145,31 +149,37 @@ public class HomePage extends BaseClass {
 	
 	public HomePage clickSearchBar() {
 		clickOnElement(searchBar);
+		log.info("Clicked on search Bar.");
 		return this;
 	}
 
 	public HomePage clickManufacturers() {
 		clickOnElement(manufacturers);
+		log.info("Clicked on manufactureres.");
 		return this;
 	}
 
 	public HomePage clickCustomerFeedBack() {
 		clickOnElement(customerFeedBack);
+		log.info("Clicked on customer FeedBack.");
 		return this;
 	}
 
 	public HomePage clickVendorsAgreement() {
 		clickOnElement(vendorsAgreement);
+		log.info("Clicked on vendor Agreement.");
 		return this;
 	}
 
 	public HomePage clickNewProducts() {
 		clickOnElement(newProducts);
+		log.info("Clicked on new Products.");
 		return this;
 	}
 
 	public HomePage clickZipCodeVal() {
 		clickOnElement(zipCodeVal);
+		log.info("Clicked on zop COde.");
 		return this;
 	}
 
@@ -196,46 +206,55 @@ public class HomePage extends BaseClass {
 
 	public HomePage clickZipCodeButton() {
 		clickOnElement(zipCodeButton);
+		log.info("Clicked on zip Code Button.");
 		return this;
 	}
 
 	public HomePage clickPreviousButton() {
 		hoverAndClickOnElement(previousButton);
+		log.info("Clicked on privious Button.");
 		return this;
 	}
 
 	public HomePage clickCart() {
 		clickOnElement(cart);
+		log.info("Clicked on cart.");
 		return this;
 	}
 
 	public HomePage selectGrocery() {
 		clickOnElement(grocery);
+		log.info("Clicked on grocery.");
 		return this;
 	}
 
 	public HomePage getVendorList() {
 		clickOnElement(getVendor);
+		log.info("Clicked on vendor");
 		return this;
 	}
 
 	public HomePage clickSearchIcon() {
 		clickOnElement(btnSearch);
+		log.info("Clicked on search Icon.");
 		return this;
 	}
 
 	public HomePage selectVendorFromList() {
 		clickOnElement(selectVendor);
+		log.info("Selected vendor from list.");
 		return this;
 	}
 
 	public HomePage clickAddToCart() {
 		clickOnElement(addToCart);
+		log.info("Clicked on add to cart.");
 		return this;
 	}
 	
 	public HomePage selectDiscountCodesAndVouchers() {
 		clickOnElement(discountCodesAndVouchers);
+		log.info("Selected Discount Codes And Vouchers.");
 		return this; 
 	}
 
@@ -246,16 +265,19 @@ public class HomePage extends BaseClass {
 
 	public HomePage ClickAdd() {
 		clickOnElement (add);
+		log.info("Clicked on add.");
 		return this; 
 	}
 
 	public HomePage clickCheckOut() {
 		clickOnElement(checkOut);
+		log.info("Clicked on check Out.");
 		return this;
 	}
 
 	public HomePage clickOnCart() {
 		clickOnElement(cart);
+		log.info("Clicked on cart.");
 		return this;
 	}
 
