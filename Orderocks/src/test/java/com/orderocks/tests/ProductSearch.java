@@ -35,7 +35,7 @@ public class ProductSearch extends BaseClass {
 				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ").clickSearchIcon();
 		//Assert.assertEquals(home.getproduct2(),"Pepsi 2.25 L");
 	}
-
+	//LoginPage login = new LoginPage(driver);
 	@AfterTest
 	public void tearDown() {
 		driver.close();
