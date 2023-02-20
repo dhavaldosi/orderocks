@@ -18,6 +18,9 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//span[text()='Grocery']")
 	WebElement grocery;
+	
+	@FindBy(xpath = "//a[contains(text(),'Hello')]")
+	WebElement accountIcon;
 
 	@FindBy(xpath = "//a[text()='Hello, Automation Do not change']")
 	WebElement welComeMessage;
@@ -117,10 +120,19 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(xpath = "//a[text()='Mythri']")
 	WebElement selectShop;
+	
+	@FindBy(xpath = "//a[text()='Log out']")
+	WebElement logOut;
 
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
+		return this;
+	}
+	
+	public HomePage clickLogOut() {
+		clickOnElement(logOut);
+		log.info("Clicked on logout.");
 		return this;
 	}
 	
@@ -149,6 +161,11 @@ public class HomePage extends BaseClass {
 	
 	public HomePage clickSearchBar() {
 		clickOnElement(searchBar);
+		return this;
+	}
+	
+	public HomePage clickAccountIcon() {
+		clickOnElement(accountIcon);
 		return this;
 	}
 
