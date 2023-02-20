@@ -121,16 +121,19 @@ public class HomePage extends BaseClass {
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
+		log.info("Hovered on allCategories.");
 		return this;
 	}
 	
 	public HomePage clickMilkProducts() {
 		hoverAndClickOnElement(milkProducts);
+		log.info("Clicked on allCategories.");
 		return this;
 	}
 	
 	public HomePage clickDesserts() {
 		hoverAndClickOnElement(desserts);
+		log.info("Clicked on allCategories.");
 		return this;
 	}
 
