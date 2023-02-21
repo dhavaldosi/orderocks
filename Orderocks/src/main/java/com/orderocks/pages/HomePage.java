@@ -143,6 +143,15 @@ public class HomePage extends BaseClass {
 	@FindBy(css = "[class='search-box-text narrow k-input']")
 	WebElement searchBox;
 
+	@FindBy(css = "[class='button-2 add-to-compare-list-button']")
+	WebElement comparelistIcon;
+	
+	@FindBy(css = "[class='ico-compare']")
+	WebElement comparelist;
+	
+	@FindBy(css = "[class*='product-name'] a")
+	WebElement verifycomparelist;
+	
 	public String getSearchBoxPlaceHolderValue() {
 		return searchBox.getAttribute("placeholder");
 	}
@@ -426,7 +435,18 @@ public HomePage clickZipCode() {
 		return verifywishlist.getText();
 	}
 
+     //methods for comparelist
+     public HomePage clickComparelistIcon() {
+ 		clickOnElement(comparelistIcon);
+ 		return this;
+ 	}
+     public HomePage clickCompareList() {
+ 		clickOnElement(comparelist);
+ 		return this;
+     }
+     public String getcompareList() {
+ 		return verifycomparelist.getText();
+ 	}
 
-	
 	}
 	
