@@ -1,9 +1,5 @@
 package com.orderocks.pages;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -62,10 +58,6 @@ public class LoginPage extends BaseClass {
 		return dialogTitle.getText();
 	}
 
-
-
-//Locators for verify tabs on Home Page
-
 	@FindBy(xpath="//*[@class='mega-menu']//span[text()='Manufacturers']")
 	WebElement manufacturers;
 	
@@ -85,20 +77,15 @@ public class LoginPage extends BaseClass {
 	@FindBy(xpath="//*[@class='mega-menu']//a[text()='Vendor Agreement']")
 	WebElement vendorAgreement;
 	
-  @FindBy(xpath="//*[@class='mega-menu']//span[@id='ZipCodeVal']")
+	@FindBy(xpath="//*[@class='mega-menu']//span[@id='ZipCodeVal']")
 	WebElement zipCodeVal;
   
-  @FindBy(xpath="//*[@class=\"page-title\"]")
-  WebElement manufacturesText;
+	@FindBy(xpath="//*[@class=\"page-title\"]")
+	WebElement manufacturesText;
   
-  @FindBy(xpath="//*[@id=\"ph-title\"]")
-  WebElement customerfeedbackSuggessionText;
+	@FindBy(xpath="//*[@id=\"ph-title\"]")
+	WebElement customerfeedbackSuggessionText;
   
- //@FindBy(css="a[class='with-subcategories hover']")
- //WebElement withSubcategoriesHover;
-	
- /////////////////////////////////////////////////////////////
-
 	
 	public LoginPage clickManufacturers(){
 		clickOnElement(manufacturers);
@@ -131,20 +118,17 @@ public class LoginPage extends BaseClass {
 		return this;
 	}
 	
-	
-public String getManufacturesText() {
+	public String getManufacturesText() {
 		waitForelement(manufacturesText);
 		return manufacturesText.getText();
-}	
+	}	
 	
-	
-	public String getcustomerfeedbackSuggessionText() {			
+	public String getcustomerfeedbackSuggessionText() {
 		waitForelement(customerfeedbackSuggessionText);
-			return customerfeedbackSuggessionText.getText();
-	
+		return customerfeedbackSuggessionText.getText();
+
 	}
-	}
-	
+}
 	
 	
 
