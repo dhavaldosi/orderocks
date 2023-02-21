@@ -139,8 +139,13 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(css = "a[class='product-name']")
 	WebElement verifywishlist;
-
 	
+	@FindBy(css = "[class='search-box-text narrow k-input']")
+	WebElement searchBox;
+
+	public String getSearchBoxPlaceHolderValue() {
+		return searchBox.getAttribute("placeholder");
+	}
 	
 	
 	public HomePage hoverAllCategories() {
