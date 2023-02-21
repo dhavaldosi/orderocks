@@ -42,11 +42,8 @@ public class OutOfStockProduct extends BaseClass {
 	public void outOfStockProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
-		driver.navigate().refresh();
 		home.clickZipCodeToLogin();
-		login.clickLoginLink();
-		login.provideCredentials();
-		login.clickLoginButton();
+		login.clickLoginLink().provideCredentials().clickLoginButton();
      	home.clickZipCodeButton().clickRestaurant().getVendorList().selectpkDessertHome().clickSearchBar().searchProduct("Vanilla Pastry").clickSearchIcon().clickAddToCart();
 		Assert.assertEquals(home.getOutofstockText(), "Out of stock");
 	}
@@ -54,5 +51,7 @@ public class OutOfStockProduct extends BaseClass {
 	public void tearDown() {
 		driver.close();
 	}
+	
+	//.clickZipCodeButton().clickRestaurant().getVendorList().selectpkDessertHome(
 }
 
