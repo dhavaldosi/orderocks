@@ -25,14 +25,15 @@ public class ApplyCouponCode extends BaseClass {
 	}
 
 	@Test(description = "Apply coupon code")
-	public void applycouponcode() {
+	public void applyCouponCode() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		ThankYouPage thankyou = new ThankYouPage(driver);
 		CheckOutPage checkout = new CheckOutPage(driver);
 		login.clickLoginLink().provideCredentials().clickLoginButton();
-	home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
-				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ").clickSearchIcon().clickAddToCart().clickOnCart().selectDiscountCodesAndVouchers().enterGiftCardCode().ClickAdd();
+		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
+				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ").clickSearchIcon().clickAddToCart()
+				.clickOnCart().selectDiscountCodesAndVouchers().enterGiftCardCode().ClickAdd();
 		checkout.clickCheckOut().continueBillingAddress().selectSlotOfDelivery().continueShippingAddress()
 				.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();

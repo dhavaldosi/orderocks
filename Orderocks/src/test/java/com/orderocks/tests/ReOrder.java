@@ -25,7 +25,7 @@ public class ReOrder extends BaseClass {
 	}
 
 	@Test(description = "ReOrder")
-	public void ReOrder() {
+	public void verifyReOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		ThankYouPage thankyou = new ThankYouPage(driver);

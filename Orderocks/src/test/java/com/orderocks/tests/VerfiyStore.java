@@ -3,7 +3,6 @@ package com.orderocks.tests;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -25,20 +24,17 @@ public class VerfiyStore extends BaseClass {
 	}
 
 
-
      @Test(description = "search and verify product with mythri")
-    public void SearchProduct() {
+    public void searchProduct() {
     	 LoginPage login = new LoginPage(driver);
  		HomePage home = new HomePage(driver);
  		ThankYouPage thankyou = new ThankYouPage(driver);
  		CheckOutPage checkout = new CheckOutPage(driver);
  		login.clickLoginLink().provideCredentials().clickLoginButton();
 	    home.clickZipCodeButton().selectGrocery().getVendorList().selectShopFromList();
-	;
       // Assert.assertEquals(home.getSearchField(), "search Mythri");
 	
 }
-
 
 	@AfterTest
 	public void tearDown() {
