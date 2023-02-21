@@ -55,17 +55,23 @@ public class BaseClass {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 	}
 
+	public void scrollToElement(WebElement locator) {
+		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", locator);
+
+	}
+
 	public void clickOnElement(WebElement locator) {
 		try {
 			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 			locator.click();
-			
+
 		} catch (Exception e) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 			new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(locator));
 			js.executeScript("arguments[0].click();", locator);
-			
+
 		}
 	}
 
@@ -73,19 +79,19 @@ public class BaseClass {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 		new WebDriverWait(driver, Duration.ofSeconds(80)).until(ExpectedConditions.elementToBeClickable(locator));
 		locator.click();
-		
+
 	}
 
 	public void type(WebElement locator, String value) {
 		waitForelement(locator);
 		locator.sendKeys(value);
-		
+
 	}
 
 	public void switchToIframe(WebElement locator) {
 		waitForelement(locator);
 		driver.switchTo().frame(locator);
-		
+
 	}
 
 	public void hoverOnElement(WebElement locator) {
@@ -101,13 +107,12 @@ public class BaseClass {
 
 	public void switchToDefault() {
 		driver.switchTo().defaultContent();
-		
+
 	}
-	
+
 	public boolean elementIsPresent(WebElement locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 		return locator.isDisplayed();
 	}
-	
 
 }
