@@ -108,5 +108,6 @@ public class BaseClass {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 		return locator.isDisplayed();
 	}
+	
 
 }
