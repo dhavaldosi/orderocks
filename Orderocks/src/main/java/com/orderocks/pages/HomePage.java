@@ -299,10 +299,11 @@ public class HomePage extends BaseClass {
 		log.info("Selected vendor from list.");
 		return this;
 	}
+	
 	public HomePage selectVendorFromList2() {
 		clickOnElement(selectVendor2);
 		return this;
-}
+	}
 	
 	public String product2() {
 		return Product1.getText();
@@ -362,42 +363,35 @@ public class HomePage extends BaseClass {
 		return elementIsPresent(welComeMessage);
 	}
 
+	@FindBy(xpath = "//*[@id='ZipCode']")
+	WebElement zipCode;
 
+	@FindBy(xpath = "//span[text()='80134']")
+	WebElement zipCodeToLogin;
 
-//Locators for outOfStockVefification
+	@FindBy(xpath = "//span[text()='Restaurant']")
+	WebElement restaurant;
 
-@FindBy(xpath="//*[@id='ZipCode']")
-WebElement zipCode;
+	@FindBy(xpath = "//a[text()=\"PK Dessert home\"]")
+	WebElement pkDessertHome;
 
-@FindBy(xpath="//span[text()='80134']")
-WebElement zipCodeToLogin;
+	@FindBy(xpath = ("//*[@class=\"bar-notification error\"]"))
+	WebElement barNotificationError;
 
-@FindBy(xpath="//span[text()='Restaurant']")
-WebElement restaurant;
+	@FindBy(xpath = "//*[@class=\"content\"]")
+	WebElement outOfStockText;
 
-@FindBy(xpath="//a[text()=\"PK Dessert home\"]")
-WebElement pkDessertHome;
-
-@FindBy(xpath=("//*[@class=\"bar-notification error\"]"))
-WebElement barNotificationError;
-
-@FindBy(xpath="//*[@class=\"content\"]")
-WebElement outOfStockText;
-
-//Methods for Out Of Stock Verification
-
-public HomePage clickZipCode() {
-	clickOnElement(zipCode);
-	log.info("Clicked on zip code.");
-	return this;
-}
+	public HomePage clickZipCode() {
+		clickOnElement(zipCode);
+		log.info("Clicked on zip code.");
+		return this;
+	}
 
 	public HomePage clickZipCodeToLogin() {
 		clickOnElement(zipCodeToLogin);
 		log.info("Clicked on zip code to login.");
 		return this;
 	}
-	
 	
 	public HomePage enterZipCode() {
 		type(zipCode, "80134");
@@ -419,9 +413,8 @@ public HomePage clickZipCode() {
 	public String getOutofstockText() {
 		waitForelement(outOfStockText);
 		return outOfStockText.getText();
-
 	}
-	//methods for wishlist
+
 	public HomePage clickWishlist() {
 		clickOnElement(wishlist);
 		return this;
@@ -431,19 +424,22 @@ public HomePage clickZipCode() {
 		clickOnElement(wishlistIcon);
 		return this;
 	}
+     
      public String getwishlist() {
 		return verifywishlist.getText();
 	}
 
-     //methods for comparelist
+    
      public HomePage clickComparelistIcon() {
  		clickOnElement(comparelistIcon);
  		return this;
  	}
+     
      public HomePage clickCompareList() {
  		clickOnElement(comparelist);
  		return this;
      }
+     
      public String getcompareList() {
  		return verifycomparelist.getText();
  	}
