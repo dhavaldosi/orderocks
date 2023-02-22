@@ -3,7 +3,6 @@ package com.orderocks.tests;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -25,7 +24,7 @@ public class CancelOrder extends BaseClass {
 	}
 
 	@Test(description = "CancelOrder")
-	public void CancelOrder() {
+	public void verifyCancelOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		ThankYouPage thankyou = new ThankYouPage(driver);

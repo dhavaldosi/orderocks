@@ -60,6 +60,12 @@ public class BaseClass {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", locator);
 
 	}
+	
+	public void scrollToElementAndClick(WebElement locator) {
+		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", locator);
+		clickOnElement(locator);
+	}
 
 	public void clickOnElement(WebElement locator) {
 		try {

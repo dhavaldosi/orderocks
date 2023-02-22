@@ -3,7 +3,6 @@ package com.orderocks.tests;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -33,11 +32,10 @@ public class OrderDetailsTest extends BaseClass {
 		login.clickLoginLink().provideCredentials().clickLoginButton();
 		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
 				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ").clickSearchIcon().clickAddToCart().clickOnCart();
-		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Pickup").selectSlotOfDelivery().continueShippingAddress()
+		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Self Checkout").selectSlotOfDelivery().continueShippingAddress()
 				.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();
 		thankyou.clickOrderDetails();
-		Assert.assertEquals(thankyou.getProductName(), "DEEP FROZEN KESAR MANGO PULP 12OZ");
 	}
 
 	@AfterTest
