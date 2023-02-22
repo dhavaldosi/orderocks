@@ -37,6 +37,8 @@ public class CancelOrder extends BaseClass {
 				.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 				.continuePaymentInformation().clickConfirmOrder();
 		thankyou.clickOrderDetails().clickCancelOrder().clickCancelthisOrder();
+		
+		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been cancel!");
 	}
 
 	@AfterTest
