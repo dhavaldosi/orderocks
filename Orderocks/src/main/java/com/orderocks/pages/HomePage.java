@@ -326,7 +326,7 @@ public class HomePage extends BaseClass {
 		log.info("Clicked on add.");
 		return this; 
 	}
-
+	
 	public HomePage clickCheckOut() {
 		clickOnElement(checkOut);
 		log.info("Clicked on checkout.");
@@ -427,6 +427,33 @@ public HomePage clickZipCode() {
 	}
 
 
-	
-	}
-	
+@FindBy(css = "td[class=remove-from-cart]")
+WebElement removeProductFromCart;
+
+
+@FindBy(css = "[class=\"button-2 update-cart-button\"]")
+WebElement updateShoppingCart;
+
+@FindBy(css = "[class='no-data']")
+WebElement shoppingCartIsEmptyText;
+
+
+public HomePage removeProductFromCart() {
+	clickOnElement (removeProductFromCart);
+	log.info("clicked on removeProductfromCart");
+	return this;
+}
+
+
+public HomePage updateShoppingCart() {
+	clickOnElement (updateShoppingCart);
+	log.info("clicked on updateShoppingCart");
+	return this;
+}
+
+public String getShoppingCartStatus() {
+		return shoppingCartIsEmptyText.getText();
+ }
+
+}
+
