@@ -25,7 +25,7 @@ public class CancelOrder extends BaseClass {
 	}
 
 	@Test(description = "CancelOrder")
-	public void CancelOrder() {
+	public void verifyCancelOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		ThankYouPage thankyou = new ThankYouPage(driver);
