@@ -15,8 +15,8 @@ public class HomePage extends BaseClass {
 	}
 
 	WebDriver driver;
-	
-    @FindBy(css = "[href='/contactus']")
+
+	@FindBy(css = "[href='/contactus']")
 	WebElement contactus;
 
 	@FindBy(css = "[id='FullName']")
@@ -36,7 +36,7 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//span[text()='Grocery']")
 	WebElement grocery;
-	
+
 	@FindBy(xpath = "//a[contains(text(),'Hello')]")
 	WebElement accountIcon;
 
@@ -78,10 +78,10 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//a[text()=\"Angel_Market\"]")
 	WebElement selectVendor2;
-	
-    @FindBy(xpath = "//a[text()='Pepsi 2.25 L']")
+
+	@FindBy(xpath = "//a[text()='Pepsi 2.25 L']")
 	WebElement Product1;
-	
+
 	@FindBy(css = "[id='small-searchterms']")
 	WebElement searchBar;
 
@@ -90,7 +90,7 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//input[@value='Add to cart']")
 	WebElement addToCart;
-	
+
 	@FindBy(xpath = "//div[text()='Discount codes and Vouchers']")
 	WebElement discountCodesAndVouchers;
 
@@ -99,7 +99,7 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[value='Add']")
 	WebElement add;
-	
+
 	@FindBy(css = "[class='cart-qty']")
 	WebElement cart;
 
@@ -132,47 +132,59 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[class*='tawk-agent'] span")
 	WebElement tawkAgent;
-	
+
 	@FindBy(css = "[class='category-navigation-title']")
 	WebElement allCategories;
-	
+
 	@FindBy(xpath = "//ul[@id='ul-category-navigation']//a[text()='Milk Products']")
 	WebElement milkProducts;
-	
+
 	@FindBy(xpath = "//ul[@id='ul-category-navigation']//a[text()='Desserts']")
 	WebElement desserts;
-	
+
 	@FindBy(xpath = "//a[text()='Mythri']")
 	WebElement selectShop;
-	
+
 	@FindBy(xpath = "//a[text()='Log out']")
 	WebElement logOut;
-	
+
 	@FindBy(css = "[class='button-2 add-to-wishlist-button'] ")
 	WebElement wishlist;
-	
+
 	@FindBy(css = "[class='ico-wishlist']")
 	WebElement wishlistIcon;
-	
+
 	@FindBy(css = "a[class='product-name']")
 	WebElement verifywishlist;
-	
+
 	@FindBy(css = "[class='search-box-text narrow k-input']")
 	WebElement searchBox;
 
 	@FindBy(css = "[class='button-2 add-to-compare-list-button']")
 	WebElement comparelistIcon;
-	
+
 	@FindBy(css = "[class='ico-compare']")
 	WebElement comparelist;
-	
+
 	@FindBy(css = "[class*='product-name'] a")
 	WebElement verifycomparelist;
-	
+
+	@FindBy(css = "[class='ico-account opener']")
+	WebElement myaccount;
+
+	@FindBy(css = "[class='ico-account']")
+	WebElement myaccounticon;
+
+	@FindBy(css = "[class='customer-reviews'] a")
+	WebElement myproductreviews;
+
+	@FindBy(css = "[class='page-title']")
+	WebElement verifyreviews;
+
 	public String getSearchBoxPlaceHolderValue() {
 		return searchBox.getAttribute("placeholder");
 	}
-	
+
 	public HomePage scrollToElementAndClick() {
 		scrollToElementAndClick(contactus);
 		return this;
@@ -209,19 +221,19 @@ public class HomePage extends BaseClass {
 		log.info("Hovered on all categories.");
 		return this;
 	}
-	
+
 	public HomePage clickLogOut() {
 		clickOnElement(logOut);
 		log.info("Clicked on logout.");
 		return this;
 	}
-	
+
 	public HomePage clickMilkProducts() {
 		hoverAndClickOnElement(milkProducts);
 		log.info("Clicked on milk product.");
 		return this;
 	}
-	
+
 	public HomePage clickDesserts() {
 		hoverAndClickOnElement(desserts);
 		log.info("Clicked on desserts.");
@@ -232,7 +244,7 @@ public class HomePage extends BaseClass {
 		addToCart.click();
 	}
 
-	public HomePage giftCardCouponCode () {
+	public HomePage giftCardCouponCode() {
 		clickOnElement(giftCardCouponCode);
 		log.info("Clicked on gift card coupon code.");
 		return this;
@@ -241,13 +253,13 @@ public class HomePage extends BaseClass {
 	public WebElement add() {
 		return add;
 	}
-	
+
 	public HomePage clickSearchBar() {
 		clickOnElement(searchBar);
 		log.info("Clicked on search bar.");
 		return this;
 	}
-	
+
 	public HomePage clickAccountIcon() {
 		clickOnElement(accountIcon);
 		log.info("Clicked on account icon.");
@@ -346,16 +358,16 @@ public class HomePage extends BaseClass {
 		log.info("Selected vendor from list.");
 		return this;
 	}
-	
+
 	public HomePage selectVendorFromList2() {
 		clickOnElement(selectVendor2);
 		return this;
 	}
-	
+
 	public String product2() {
 		return Product1.getText();
 	}
-	
+
 	public String getproduct2() {
 		waitForelement(Product1);
 		return Product1.getText();
@@ -366,22 +378,22 @@ public class HomePage extends BaseClass {
 		log.info("Clicked on add to cart.");
 		return this;
 	}
-	
+
 	public HomePage selectDiscountCodesAndVouchers() {
 		clickOnElement(discountCodesAndVouchers);
 		log.info("Clicked on discount codes and vouchers.");
-		return this; 
+		return this;
 	}
 
 	public HomePage enterGiftCardCode() {
-		type (giftCardCouponCode, "9c24c57c-803f");
+		type(giftCardCouponCode, "9c24c57c-803f");
 		return this;
 	}
 
 	public HomePage ClickAdd() {
-		clickOnElement (add);
+		clickOnElement(add);
 		log.info("Clicked on add.");
-		return this; 
+		return this;
 	}
 
 	public HomePage clickCheckOut() {
@@ -399,12 +411,12 @@ public class HomePage extends BaseClass {
 	public String getPageTitle() {
 		return pageTitle.getText();
 	}
+
 	public HomePage selectShopFromList() {
 		clickOnElement(selectShop);
 		log.info("Selected shop from list.");
 		return this;
 	}
-
 
 	public boolean isWelComeMessagePresent() {
 		return elementIsPresent(welComeMessage);
@@ -439,11 +451,12 @@ public class HomePage extends BaseClass {
 		log.info("Clicked on zip code to login.");
 		return this;
 	}
-	
+
 	public HomePage enterZipCode() {
 		type(zipCode, "80134");
 		return this;
 	}
+
 	public HomePage clickRestaurant() {
 		clickOnElement(restaurant);
 		log.info("Clicked on restaurant.");
@@ -455,8 +468,7 @@ public class HomePage extends BaseClass {
 		log.info("Selected pk dessert home.");
 		return this;
 	}
-	
-	
+
 	public String getOutofstockText() {
 		waitForelement(outOfStockText);
 		return outOfStockText.getText();
@@ -467,29 +479,47 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
-     public HomePage clickWishlistIcon() {
+	public HomePage clickWishlistIcon() {
 		clickOnElement(wishlistIcon);
 		return this;
 	}
-     
-     public String getwishlist() {
+
+	public String getwishlist() {
 		return verifywishlist.getText();
 	}
 
-    
-     public HomePage clickComparelistIcon() {
- 		clickOnElement(comparelistIcon);
- 		return this;
- 	}
-     
-     public HomePage clickCompareList() {
- 		clickOnElement(comparelist);
- 		return this;
-     }
-     
-     public String getcompareList() {
- 		return verifycomparelist.getText();
- 	}
-
+	public HomePage clickComparelistIcon() {
+		clickOnElement(comparelistIcon);
+		return this;
 	}
-	
+
+	public HomePage clickCompareList() {
+		clickOnElement(comparelist);
+		return this;
+	}
+
+	public String getcompareList() {
+		return verifycomparelist.getText();
+	}
+
+	public HomePage clickOnMyAccount() {
+		clickOnElement(myaccount);
+		return this;
+	}
+
+	public String getMyReviewpage() {
+		waitForelement(verifyreviews);
+		return verifyreviews.getText();
+	}
+
+	public HomePage clicktonMyAccountIcon() {
+		clickOnElement(myaccounticon);
+		return this;
+	}
+
+	public HomePage clicktonMyProductReview() {
+		clickOnElement(myproductreviews);
+		return this;
+	}
+
+}
