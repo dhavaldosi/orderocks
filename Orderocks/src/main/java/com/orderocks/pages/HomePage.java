@@ -15,6 +15,24 @@ public class HomePage extends BaseClass {
 	}
 
 	WebDriver driver;
+	
+    @FindBy(css = "[href='/contactus']")
+	WebElement contactus;
+
+	@FindBy(css = "[id='FullName']")
+	WebElement yourName;
+
+	@FindBy(css = "[id='Email']")
+	WebElement yourEmail;
+
+	@FindBy(css = "[id='enquiry']")
+	WebElement enquiry;
+
+	@FindBy(css = "[class='button-1 contact-us-button'][value='Submit']")
+	WebElement submit;
+
+	@FindBy(css = "[class='result']")
+	WebElement result;
 
 	@FindBy(xpath = "//span[text()='Grocery']")
 	WebElement grocery;
@@ -64,7 +82,6 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[text()='Pepsi 2.25 L']")
 	WebElement Product1;
 	
-
 	@FindBy(css = "[id='small-searchterms']")
 	WebElement searchBar;
 
@@ -156,7 +173,37 @@ public class HomePage extends BaseClass {
 		return searchBox.getAttribute("placeholder");
 	}
 	
-	
+	public HomePage scrollToElementAndClick() {
+		scrollToElementAndClick(contactus);
+		return this;
+	}
+
+	public HomePage enterFullName() {
+		type(yourName, "Avantika Tambekar");
+		return this;
+	}
+
+	public HomePage enterEmail() {
+		type(yourEmail, "orderocks.automation.user@gmail.com");
+		return this;
+	}
+
+	public HomePage enterEnquiry() {
+		type(enquiry, "Want to apply for Vendor");
+		return this;
+	}
+
+	public HomePage clickSubmit() {
+		clickOnElement(submit);
+		return this;
+	}
+
+	public String getTitle() {
+		waitForelement(result);
+		log.info("Page title is : " + result.getText());
+		return result.getText();
+	}
+
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
 		log.info("Hovered on all categories.");
