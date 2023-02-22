@@ -41,6 +41,7 @@ public class ReOrder extends BaseClass {
 		.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 		.continuePaymentInformation().clickConfirmOrder();
 		
+		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully completed!");
 	}
 
 	@AfterTest
