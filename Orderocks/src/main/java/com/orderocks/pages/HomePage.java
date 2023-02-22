@@ -143,10 +143,36 @@ public class HomePage extends BaseClass {
 	@FindBy(css = "[class='search-box-text narrow k-input']")
 	WebElement searchBox;
 
+	@FindBy(xpath="//*[@id='ZipCode']")
+	WebElement zipCode;
+
+	@FindBy(xpath="//span[text()='80134']")
+	WebElement zipCodeToLogin;
+
+	@FindBy(xpath="//span[text()='Restaurant']")
+	WebElement restaurant;
+
+	@FindBy(xpath="//a[text()=\"PK Dessert home\"]")
+	WebElement pkDessertHome;
+
+	@FindBy(xpath=("//*[@class=\"bar-notification error\"]"))
+	WebElement barNotificationError;
+
+	@FindBy(xpath="//*[@class=\"content\"]")
+	WebElement outOfStockText;
+    
+	@FindBy(css = "td[class=remove-from-cart]")
+	WebElement removeProductFromCart;
+
+	@FindBy(css = "[class=\"button-2 update-cart-button\"]")
+	WebElement updateShoppingCart;
+
+	@FindBy(css = "[class='no-data']")
+	WebElement shoppingCartIsEmptyText;
+	
 	public String getSearchBoxPlaceHolderValue() {
 		return searchBox.getAttribute("placeholder");
 	}
-	
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
@@ -353,35 +379,11 @@ public class HomePage extends BaseClass {
 		return elementIsPresent(welComeMessage);
 	}
 
-
-
-//Locators for outOfStockVefification
-
-@FindBy(xpath="//*[@id='ZipCode']")
-WebElement zipCode;
-
-@FindBy(xpath="//span[text()='80134']")
-WebElement zipCodeToLogin;
-
-@FindBy(xpath="//span[text()='Restaurant']")
-WebElement restaurant;
-
-@FindBy(xpath="//a[text()=\"PK Dessert home\"]")
-WebElement pkDessertHome;
-
-@FindBy(xpath=("//*[@class=\"bar-notification error\"]"))
-WebElement barNotificationError;
-
-@FindBy(xpath="//*[@class=\"content\"]")
-WebElement outOfStockText;
-
-//Methods for Out Of Stock Verification
-
-public HomePage clickZipCode() {
-	clickOnElement(zipCode);
-	log.info("Clicked on zip code.");
-	return this;
-}
+	public HomePage clickZipCode() {
+		clickOnElement(zipCode);
+		log.info("Clicked on zip code.");
+		return this;
+    }
 
 	public HomePage clickZipCodeToLogin() {
 		clickOnElement(zipCodeToLogin);
@@ -425,17 +427,6 @@ public HomePage clickZipCode() {
      public String getwishlist() {
 		return verifywishlist.getText();
 	}
-
-
-@FindBy(css = "td[class=remove-from-cart]")
-WebElement removeProductFromCart;
-
-
-@FindBy(css = "[class=\"button-2 update-cart-button\"]")
-WebElement updateShoppingCart;
-
-@FindBy(css = "[class='no-data']")
-WebElement shoppingCartIsEmptyText;
 
 
 public HomePage removeProductFromCart() {

@@ -34,7 +34,7 @@ public class SelfCheckoutorder extends BaseClass {
 		checkout.clearCartIfProductAlreadyAdded();
 		home.clickZipCodeButton().clickRestaurant().getVendorList().selectpkDessertHome().clickSearchBar()
 				.searchProduct("Cup cakes-Vanilla").clickSearchIcon().clickAddToCart().clickOnCart();
-		checkout.clickCheckOut().continueBillingAddress().selectSelfCheckout().continueShippingAddress().enterCardHolderName()
+		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Self Checkout").continueShippingAddress().enterCardHolderName()
 		.enterCardNumber().selectExpireMonth().entercardCode().continuePaymentInformation().clickConfirmOrder();
 		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully processed!");
 	}
