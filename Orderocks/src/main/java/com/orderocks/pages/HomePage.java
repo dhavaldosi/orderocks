@@ -92,9 +92,13 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[id='btnSearch']")
 	WebElement btnSearch;
-
-	@FindBy(xpath = "//input[@value='Add to cart']")
+	
+    @FindBy(xpath = "//input[@value='Add to cart']")
 	WebElement addToCart;
+	
+	@FindBy(css = "[value='Clear shopping cart']")
+	WebElement clearShoppingCart;
+	
 
 	@FindBy(xpath = "//div[text()='Discount codes and Vouchers']")
 	WebElement discountCodesAndVouchers;
@@ -277,12 +281,16 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
+	public HomePage scrollToElementAndClickClearShoppingCart() {
+		scrollToElementAndClick(clearShoppingCart);
+		return this;
+	}
+	
 	public WebElement add() {
 		return add;
 	}
 	
-
-	public HomePage clickContinueShopping() {
+    public HomePage clickContinueShopping() {
 		clickOnElement(continueShopping);
 		return this;
 	}
