@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import base.BaseClass;
 
@@ -643,6 +644,22 @@ public class HomePage extends BaseClass {
 	public HomePage clicktonWriteReviews() {
 		clickOnElement(clickonwritereviews);
 		return this;
+	}
+
+	public HomePage clickOnDropdown() {
+		clickOnElement(dropdown);
+		return this;
+	}
+
+	public HomePage selectByVisibleText() {
+		Select select = new Select(dropdown);
+		select.selectByVisibleText("Amul");
+		return this;
+	}
+
+	public String getCategoryList() {
+		waitForelement(dropdown);
+		return dropdown.getText();
 	}
 
 }
