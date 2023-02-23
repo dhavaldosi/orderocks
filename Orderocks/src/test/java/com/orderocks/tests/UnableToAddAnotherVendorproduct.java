@@ -3,18 +3,17 @@ package com.orderocks.tests;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
-import com.orderocks.pages.ThankYouPage;
 
 import base.BaseClass;
 
-public class SelfCheckoutorder extends BaseClass {
+public class UnableToAddAnotherVendorproduct extends BaseClass {
 
 	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 
@@ -24,21 +23,21 @@ public class SelfCheckoutorder extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test(description = "Process self checkout order")
-	public void verifySelfCheckoutOrder() {
+	@Test(description = "Unable To Add Another Vendor product")
+	public void VerifyUnableToAddAnotherVendorProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
-		ThankYouPage thankyou = new ThankYouPage(driver);
-		CheckOutPage checkout = new CheckOutPage(driver);
 		login.clickLoginLink().provideCredentials().clickLoginButton();
-		checkout.clearCartIfProductAlreadyAdded();
 		home.clickZipCodeButton().clickRestaurant().getVendorList().selectpkDessertHome().clickSearchBar()
-				.searchProduct("Cup cakes-Vanilla").clickSearchIcon().clickAddToCart().clickOnCart();
-		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Self Checkout").continueShippingAddress().enterCardHolderName()
-		.enterCardNumber().selectExpireMonth().entercardCode().continuePaymentInformation().clickConfirmOrder();
-		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully processed!");
+				.searchProduct("Cup cakes-Vanilla").clickSearchIcon().clickAddToCart().clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList();
+	   
+		Alert alert= driver.switchTo().alert();
+	   alert.accept();
+	   home.clickOnCart();
+	   Assert.assertEquals(home.getShoppingCartStatus(), "Your Shopping Cart is empty!");
+	   
 	}
-
+	   
 	@AfterTest
 	public void tearDown() {
 		driver.close();
