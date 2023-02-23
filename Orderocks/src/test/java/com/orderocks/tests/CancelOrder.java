@@ -13,6 +13,7 @@ import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 import com.orderocks.pages.ThankYouPage;
 
+import base.Author;
 import base.BaseClass;
 import org.testng.Assert;
 public class CancelOrder extends BaseClass {
@@ -25,7 +26,8 @@ public class CancelOrder extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test(description = "CancelOrder")
+	@Test(description = "Cancel Order")
+	@Author("Your Name")
 	public void verifyCancelOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

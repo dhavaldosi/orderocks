@@ -12,6 +12,7 @@ import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class DropdownHandling extends BaseClass {
@@ -25,6 +26,7 @@ public class DropdownHandling extends BaseClass {
 	}
 
 	@Test(description = "Select the Value from Dropdown")
+	@Author("Your Name")
 	public void selectDropdown() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

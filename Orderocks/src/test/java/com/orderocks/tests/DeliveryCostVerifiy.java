@@ -11,6 +11,8 @@ import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 import com.orderocks.pages.ThankYouPage;
 import org.openqa.selenium.WebDriver;
+
+import base.Author;
 import base.BaseClass;
 
 public class DeliveryCostVerifiy  extends BaseClass  {
@@ -23,6 +25,7 @@ public class DeliveryCostVerifiy  extends BaseClass  {
 			}
 
 			@Test(description = "Process an order")
+			@Author("Your Name")
 			public void verifyCreateAnOder() {
 				LoginPage login = new LoginPage(driver);
 				HomePage home = new HomePage(driver);

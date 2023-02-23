@@ -12,6 +12,7 @@ import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 import com.orderocks.pages.ThankYouPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class ApplyCouponCode extends BaseClass {
@@ -25,6 +26,7 @@ public class ApplyCouponCode extends BaseClass {
 	}
 
 	@Test(description = "Apply coupon code")
+	@Author("Your Name")
 	public void applyCouponCode() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

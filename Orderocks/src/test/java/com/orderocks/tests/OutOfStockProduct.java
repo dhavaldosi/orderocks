@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class OutOfStockProduct extends BaseClass {
@@ -24,6 +25,7 @@ public class OutOfStockProduct extends BaseClass {
 	}
 	
 	@Test(description = "Out Of Stock without Login", priority=1)
+	@Author("Your Name")
 	public void withoutLoginOutOfStock() {
 		HomePage home = new HomePage(driver);
 		home.clickRestaurant().clickZipCode().enterZipCode().clickZipCodeButton().getVendorList().selectpkDessertHome()
@@ -33,7 +35,7 @@ public class OutOfStockProduct extends BaseClass {
 	}
 
 	@Test(description = "Out Of Stock After Login", priority=2)
-
+	@Author("Your Name")
 	public void outOfStockProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

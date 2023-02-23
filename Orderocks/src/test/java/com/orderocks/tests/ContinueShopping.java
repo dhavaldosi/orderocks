@@ -10,6 +10,7 @@ import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class ContinueShopping extends BaseClass {
@@ -23,6 +24,7 @@ public class ContinueShopping extends BaseClass {
 	}
 
 	@Test(description = "Process with continue shopping")
+	@Author("Your Name")
 	public void verifyContinueShopping() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

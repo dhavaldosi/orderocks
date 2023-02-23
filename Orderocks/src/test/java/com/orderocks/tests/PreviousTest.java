@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class PreviousTest extends BaseClass {
@@ -22,6 +23,7 @@ public class PreviousTest extends BaseClass {
 	}
 
 	@Test(description = "Twak chat agent message")
+	@Author("Your Name")
 	public void verifyTawk() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
