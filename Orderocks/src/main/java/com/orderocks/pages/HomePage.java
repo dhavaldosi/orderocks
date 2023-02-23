@@ -16,8 +16,11 @@ public class HomePage extends BaseClass {
 
 	WebDriver driver;
 
-	@FindBy(css = "[href='/contactus']")
+	@FindBy(xpath = "//a[text()='Contact us']")
 	WebElement contactus;
+	
+	@FindBy(css = "[class='footer-middle']")
+	WebElement fotterMiddleSection;
 
 	@FindBy(css = "[id='FullName']")
 	WebElement yourName;
@@ -185,8 +188,9 @@ public class HomePage extends BaseClass {
 		return searchBox.getAttribute("placeholder");
 	}
 
-	public HomePage scrollToElementAndClick() {
-		scrollToElementAndClick(contactus);
+	public HomePage clickContactUs() {
+		scrollToElement(fotterMiddleSection);
+		clickOnElement(contactus);
 		return this;
 	}
 
