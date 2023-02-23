@@ -24,8 +24,8 @@ public class GivingReview extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test(description = "Giving reviews")
-	public void EnterReviews() {
+	@Test(description = "Giving reviews to the Product")
+	public void enterReviews() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		CheckOutPage checkout = new CheckOutPage(driver);
@@ -33,9 +33,9 @@ public class GivingReview extends BaseClass {
 		checkout.clearCartIfProductAlreadyAdded();
 		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList()
 				.searchProduct("DEEP ELAICHI SHRIKHAND 14OZ/400G");
-		home.clickSearchIcon().clicktonproducttitle().clicktonreviews().clicktonWritereviews().EnterReviewsTitle()
-				.EnterReviewsText().ClickOnSubmitreviews();
-		Assert.assertEquals(home.getsubmitmsg(),
+		home.clickSearchIcon().clicktonProductTitle().clicktOnReviews().clicktonWriteReviews().enterReviewsTitle()
+				.enterReviewsText().clickOnSubmitReviews();
+		Assert.assertEquals(home.getSubmitMsg(),
 				"You will see the product review after approving by a store administrator.");
 
 

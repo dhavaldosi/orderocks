@@ -35,7 +35,7 @@ public class ProductAddToCompareList extends BaseClass {
   		login.clickLoginLink().provideCredentials().clickLoginButton();
  	    home.clickZipCodeButton().selectGrocery().getVendorList().selectShopFromList().searchProduct("Amul Amul Masti Dahi Cup - 400 Gm");
 	     home.clickSearchIcon().clickComparelistIcon().clickCompareList();
-	     Assert.assertEquals(home.getcompareList(), "Amul Amul Masti Dahi Cup - 400 Gm");
+	     Assert.assertEquals(home.getCompareList(), "Amul Amul Masti Dahi Cup - 400 Gm");
         
 	     
 	    // Assert.assertTrue(home.getcompareList().contains("Amul"));

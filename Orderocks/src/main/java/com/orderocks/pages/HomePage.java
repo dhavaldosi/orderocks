@@ -552,7 +552,7 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
-	public String getcompareList() {
+	public String getCompareList() {
 		return verifycomparelist.getText();
 	}
 
@@ -576,38 +576,38 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
-	public String getsubmitmsg() {
-		waitForelement( verifyreview);
-		return  verifyreview.getText();
+	public String getSubmitMsg() {
+		waitForelement(verifyreview);
+		return verifyreview.getText();
 	}
 
-	public HomePage clicktonproducttitle() {
+	public HomePage clicktonProductTitle() {
 		clickOnElement(clickonproductname);
 		return this;
 	}
 
-	public HomePage ClickOnSubmitreviews() {
+	public HomePage clickOnSubmitReviews() {
 		clickOnElement(submitbutton);
 		return this;
 	}
 
-	public HomePage EnterReviewsTitle() {
+	public HomePage enterReviewsTitle() {
 		entertitle.sendKeys("Test");
 		return this;
 	}
 
-	public HomePage EnterReviewsText() {
+	public HomePage enterReviewsText() {
 		entertext.sendKeys("good");
 		return this;
 
 	}
 
-	public HomePage clicktonreviews() {
+	public HomePage clicktOnReviews() {
 		clickOnElement(clickonreviews);
 		return this;
 	}
 
-	public HomePage clicktonWritereviews() {
+	public HomePage clicktonWriteReviews() {
 		clickOnElement(clickonwritereviews);
 		return this;
 	}
