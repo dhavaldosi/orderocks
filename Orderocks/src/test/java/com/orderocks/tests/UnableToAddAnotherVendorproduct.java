@@ -23,7 +23,7 @@ public class UnableToAddAnotherVendorproduct extends BaseClass {
 	}
 
 	@Test(description = "Unable To Add Another Vendor product")
-	public void VerifyUnableToAddAnotherVendorProduct() {
+	public void verifyUnableToAddAnotherVendorProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		login.clickLoginLink().provideCredentials().clickLoginButton();
