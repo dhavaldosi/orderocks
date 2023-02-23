@@ -324,18 +324,18 @@ public class CheckOutPage extends BaseClass {
 
 
 /////////////////
-
-
-@FindBy(css = "[for=\"shippingOptionType-SelfCheckout\"]")
-WebElement selfCheckout;
-
-
-public CheckOutPage selectSelfCheckout() {
-clickOnElement(selfCheckout);
-log.info("clicked on selfCheckout");
-
-return this;
-}
+//
+//
+//@FindBy(css = "[for=\"shippingOptionType-SelfCheckout\"]")
+//WebElement selfCheckout;
+//
+//
+//public CheckOutPage selectSelfCheckout() {
+//clickOnElement(selfCheckout);
+//log.info("clicked on selfCheckout");
+//
+//return this;
+//}
 }
 
 

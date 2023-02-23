@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -191,6 +192,7 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(css = "[class*='navigation desktop'] [class=list] li a")
 	List<WebElement> myAccountTabs;
+	
 	
 	public HomePage selectMyAccountTab(String selectTab) {
 
@@ -481,6 +483,9 @@ public class HomePage extends BaseClass {
 	@FindBy(css = "[class='no-data']")
 	WebElement shoppingCartIsEmptyText;
 	
+	@FindBy(css="[value=\'Add to cart\']")
+	WebElement addToCartHome;
+	
 	public HomePage clickZipCode() {
 		clickOnElement(zipCode);
 		log.info("Clicked on zip code.");
@@ -578,4 +583,17 @@ public class HomePage extends BaseClass {
 	public String getShoppingCartStatus() {
 		return shoppingCartIsEmptyText.getText();
 	}
+	
+	public HomePage clickaddToCartHome() {
+		clickOnElement (addToCartHome);
+		log.info("clicked on addToCartHome");
+		return this;
+	}
+	
+
+public void hoverOnElement(WebElement cart) {
+	Actions actions = new Actions(driver);
+	actions.moveToElement(cart).perform();
+
+}
 }
