@@ -20,7 +20,7 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//a[text()='Contact us']")
 	WebElement contactus;
-	
+
 	@FindBy(css = "[class='footer-middle']")
 	WebElement fotterMiddleSection;
 
@@ -152,7 +152,7 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//a[text()='Log out']")
 	WebElement logOut;
-	
+
 	@FindBy(xpath = "//a[text()='My account']")
 	WebElement myAccount;
 
@@ -188,22 +188,46 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[class='page-title']")
 	WebElement verifyreviews;
-	
+
 	@FindBy(css = "[class*='navigation desktop'] [class=list] li a")
 	List<WebElement> myAccountTabs;
-	
+
+	@FindBy(xpath = "//*[@id=\"instant-search-manufacturers\"]")
+	WebElement dropdown;
+
+	@FindBy(css = "[class='product-title'] a")
+	WebElement clickonproductname;
+
+	@FindBy(css = "[href='#quickTab-reviews'] ")
+	WebElement clickonreviews;
+
+	@FindBy(css = "[class='write-review-title'] ")
+	WebElement clickonwritereviews;
+
+	@FindBy(css = "[id='AddProductReview_Title'] ")
+	WebElement entertitle;
+
+	@FindBy(css = "[id='AddProductReview_ReviewText'] ")
+	WebElement entertext;
+
+	@FindBy(css = "[id='add-review'] ")
+	WebElement submitbutton;
+
+	@FindBy(css = "[class='submitReviewResult']")
+	WebElement verifyreview;
+
 	public HomePage selectMyAccountTab(String selectTab) {
 
 		for (int i = 0; i < myAccountTabs.size(); i++) {
 			if (myAccountTabs.get(i).getText().equals(selectTab)) {
 				clickOnElement(myAccountTabs.get(i));
-				log.info("Selected tab is : " +selectTab);
+				log.info("Selected tab is : " + selectTab);
 				break;
 			}
 		}
 		return this;
 	}
-		
+
 	public String getSearchBoxPlaceHolderValue() {
 		return searchBox.getAttribute("placeholder");
 	}
@@ -295,15 +319,13 @@ public class HomePage extends BaseClass {
 		log.info("Clicked on manufacturers.");
 		return this;
 	}
-	
+
 	public HomePage clickMyAccount() {
 		clickOnElement(myAccount);
 		log.info("Clicked on my account.");
 		return this;
 	}
 
-	
-	
 	public HomePage clickCustomerFeedBack() {
 		clickOnElement(customerFeedBack);
 		log.info("Clicked on customer feedback.");
@@ -551,6 +573,42 @@ public class HomePage extends BaseClass {
 
 	public HomePage clicktonMyProductReview() {
 		clickOnElement(myproductreviews);
+		return this;
+	}
+
+	public String getsubmitmsg() {
+		waitForelement( verifyreview);
+		return  verifyreview.getText();
+	}
+
+	public HomePage clicktonproducttitle() {
+		clickOnElement(clickonproductname);
+		return this;
+	}
+
+	public HomePage ClickOnSubmitreviews() {
+		clickOnElement(submitbutton);
+		return this;
+	}
+
+	public HomePage EnterReviewsTitle() {
+		entertitle.sendKeys("Test");
+		return this;
+	}
+
+	public HomePage EnterReviewsText() {
+		entertext.sendKeys("good");
+		return this;
+
+	}
+
+	public HomePage clicktonreviews() {
+		clickOnElement(clickonreviews);
+		return this;
+	}
+
+	public HomePage clicktonWritereviews() {
+		clickOnElement(clickonwritereviews);
 		return this;
 	}
 
