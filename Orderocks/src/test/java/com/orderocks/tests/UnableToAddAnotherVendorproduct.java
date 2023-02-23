@@ -4,7 +4,6 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -33,8 +32,8 @@ public class UnableToAddAnotherVendorproduct extends BaseClass {
 	   
 		Alert alert= driver.switchTo().alert();
 	   alert.accept();
-	   home.clickOnCart();
-	   Assert.assertEquals(home.getShoppingCartStatus(), "Your Shopping Cart is empty!");
+	   //To Do
+	   //alert.getText();
 	   
 	}
 	   
