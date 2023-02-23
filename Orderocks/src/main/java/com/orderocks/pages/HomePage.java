@@ -472,6 +472,15 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//*[@class=\"content\"]")
 	WebElement outOfStockText;
 
+	@FindBy(css = "td[class=remove-from-cart]")
+	WebElement removeProductFromCart;
+
+	@FindBy(css = "[class=\"button-2 update-cart-button\"]")
+	WebElement updateShoppingCart;
+
+	@FindBy(css = "[class='no-data']")
+	WebElement shoppingCartIsEmptyText;
+	
 	public HomePage clickZipCode() {
 		clickOnElement(zipCode);
 		log.info("Clicked on zip code.");
@@ -554,4 +563,19 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
+	public HomePage removeProductFromCart() {
+		clickOnElement(removeProductFromCart);
+		log.info("clicked on removeProductfromCart");
+		return this;
+	}
+
+	public HomePage updateShoppingCart() {
+		clickOnElement(updateShoppingCart);
+		log.info("clicked on updateShoppingCart");
+		return this;
+	}
+
+	public String getShoppingCartStatus() {
+		return shoppingCartIsEmptyText.getText();
+	}
 }

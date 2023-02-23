@@ -23,7 +23,7 @@ public class OutOfStockProduct extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 	
-	@Test(description = "Out Of Stock without Login")
+	@Test(description = "Out Of Stock without Login", priority=1)
 	public void withoutLoginOutOfStock() {
 		HomePage home = new HomePage(driver);
 		home.clickRestaurant().clickZipCode().enterZipCode().clickZipCodeButton().getVendorList().selectpkDessertHome()
@@ -32,7 +32,7 @@ public class OutOfStockProduct extends BaseClass {
 
 	}
 
-	@Test(description = "Out Of Stock After Login")
+	@Test(description = "Out Of Stock After Login", priority=2)
 
 	public void outOfStockProduct() {
 		LoginPage login = new LoginPage(driver);
