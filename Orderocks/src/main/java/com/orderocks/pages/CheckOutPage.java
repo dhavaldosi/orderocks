@@ -118,6 +118,12 @@ public class CheckOutPage extends BaseClass {
 
 	@FindBy(css = "[class='cart-qty']")
 	WebElement cartQty;
+	
+	@FindBy(css = " [class='shipping-cost']")
+	WebElement shippingcost;
+
+	@FindBy(xpath = " [@id=\"shopping-cart-form\"][1]")
+	WebElement shoppingCartFrom;
 
 	public CheckOutPage clickSearchBar() {
 		clickOnElement(searchBar);
@@ -275,6 +281,18 @@ public class CheckOutPage extends BaseClass {
 		log.info("Clicked on continue payment information");
 		return this;
 	}
+	
+	public String getShippingcost() {
+		waitForelement(shippingcost);
+		return shippingcost.getText();
+}
+
+	public String getshoppingCartFrom() {
+		waitForelement(shoppingCartFrom);
+		return shoppingCartFrom.getText();
+
+	}
+	
 
 	public CheckOutPage clickConfirmOrder() {
 		clickOnElement(confirm);
