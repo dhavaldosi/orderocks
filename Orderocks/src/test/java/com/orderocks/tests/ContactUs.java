@@ -22,17 +22,17 @@ public class ContactUs extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-//	@Test(description = "Twak chat agent message")
-//	public void verifyTawk() throws IOException {
-//		LoginPage login = new LoginPage(driver);
-//		HomePage home = new HomePage(driver);
-//		login.clickLoginLink().provideCredentials().clickLoginButton();
-//		home.clickTawkBubbleContainer();
-//		Assert.assertEquals(
-//				"Welcome to our site, if you need help simply reply to this message, we are online and ready to help.",
-//				home.clickPreviousButton());
-//	}
-//	
+	@Test(description = "Twak chat agent message")
+	public void verifyTawk() throws IOException {
+		LoginPage login = new LoginPage(driver);
+		HomePage home = new HomePage(driver);
+		login.clickLoginLink().provideCredentials().clickLoginButton();
+		home.clickTawkBubbleContainer();
+		Assert.assertEquals(
+				"Welcome to our site, if you need help simply reply to this message, we are online and ready to help.",
+				home.clickPreviousButton());
+	}
+	
 	
 	
 	@Test(description = "verify contact us")
