@@ -75,6 +75,9 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[id='set-zipcode-button']")
 	WebElement zipCodeButton;
+	
+	@FindBy(css = "[value='Clear shopping cart']")
+	WebElement clearShoppingCart;
 
 	@FindBy(css = "[id='getvendor']")
 	WebElement getVendor;
@@ -279,6 +282,12 @@ public class HomePage extends BaseClass {
 		log.info("Clicked on logout.");
 		return this;
 	}
+	
+	public HomePage scrollToElementAndClickClearShoppingCart() {
+		scrollToElementAndClick(clearShoppingCart);
+		return this;
+	}
+
 
 	public HomePage clickMilkProducts() {
 		hoverAndClickOnElement(milkProducts);
