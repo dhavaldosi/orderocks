@@ -1,5 +1,7 @@
 package com.orderocks.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -150,6 +152,9 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//a[text()='Log out']")
 	WebElement logOut;
+	
+	@FindBy(xpath = "//a[text()='My account']")
+	WebElement myAccount;
 
 	@FindBy(css = "[class='button-2 add-to-wishlist-button'] ")
 	WebElement wishlist;
@@ -183,7 +188,22 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[class='page-title']")
 	WebElement verifyreviews;
+	
+	@FindBy(css = "[class*='navigation desktop'] [class=list] li a")
+	List<WebElement> myAccountTabs;
+	
+	public HomePage selectMyAccountTab(String selectTab) {
 
+		for (int i = 0; i < myAccountTabs.size(); i++) {
+			if (myAccountTabs.get(i).getText().equals(selectTab)) {
+				clickOnElement(myAccountTabs.get(i));
+				log.info("Selected tab is : " +selectTab);
+				break;
+			}
+		}
+		return this;
+	}
+		
 	public String getSearchBoxPlaceHolderValue() {
 		return searchBox.getAttribute("placeholder");
 	}
@@ -275,7 +295,15 @@ public class HomePage extends BaseClass {
 		log.info("Clicked on manufacturers.");
 		return this;
 	}
+	
+	public HomePage clickMyAccount() {
+		clickOnElement(myAccount);
+		log.info("Clicked on my account.");
+		return this;
+	}
 
+	
+	
 	public HomePage clickCustomerFeedBack() {
 		clickOnElement(customerFeedBack);
 		log.info("Clicked on customer feedback.");
