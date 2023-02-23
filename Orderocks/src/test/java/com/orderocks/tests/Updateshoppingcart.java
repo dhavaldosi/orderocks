@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class Updateshoppingcart extends BaseClass {
@@ -23,6 +24,7 @@ public class Updateshoppingcart extends BaseClass {
 	}
 
 	@Test(description = "Update Shopping Cart")
+	@Author("Your Name")
 	public void Verifyselfcheckoutorder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

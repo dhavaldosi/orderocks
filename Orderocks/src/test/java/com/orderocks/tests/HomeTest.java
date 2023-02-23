@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class HomeTest extends BaseClass {
@@ -23,6 +24,7 @@ public class HomeTest extends BaseClass {
 	}
 
 	@Test(description = "Twak chat agent message")
+	@Author("Your Name")
 	public void verifyTawk() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
@@ -36,6 +38,7 @@ public class HomeTest extends BaseClass {
 	
 	
 	@Test(description = "Verify Successul login")
+	@Author("Your Name")
 	public void verifySuccessfulLogin() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
@@ -45,6 +48,7 @@ public class HomeTest extends BaseClass {
 	}
 	
 	@Test(description = "Verify header tabs are navigating to correct page")
+	@Author("Your Name")
 	public void verifyHeaderTabNavigation() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
@@ -63,6 +67,7 @@ public class HomeTest extends BaseClass {
 	}
 	
 	@Test(description = "Verify all categories")
+	@Author("Your Name")
 	public void verifyAllCategories() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

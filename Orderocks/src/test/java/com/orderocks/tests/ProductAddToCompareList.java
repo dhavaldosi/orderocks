@@ -12,6 +12,7 @@ import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 import com.orderocks.pages.ThankYouPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class ProductAddToCompareList extends BaseClass {
@@ -27,6 +28,7 @@ public class ProductAddToCompareList extends BaseClass {
 
 
 	@Test(description = "Add product into compareList")
+	@Author("Your Name")
     public void AddToCompareList() {
     	 LoginPage login = new LoginPage(driver);
   		HomePage home = new HomePage(driver);

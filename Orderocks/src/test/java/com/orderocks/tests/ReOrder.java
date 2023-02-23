@@ -12,6 +12,7 @@ import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 import com.orderocks.pages.ThankYouPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class ReOrder extends BaseClass {
@@ -25,6 +26,7 @@ public class ReOrder extends BaseClass {
 	}
 
 	@Test(description = "ReOrder")
+	@Author("Your Name")
 	public void verifyReOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

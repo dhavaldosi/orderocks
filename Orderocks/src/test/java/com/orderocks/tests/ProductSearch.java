@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class ProductSearch extends BaseClass {
@@ -23,6 +24,7 @@ public class ProductSearch extends BaseClass {
 	}
 
 	@Test(description = "Search product")
+	@Author("Your Name")
 	public void verifySearchProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

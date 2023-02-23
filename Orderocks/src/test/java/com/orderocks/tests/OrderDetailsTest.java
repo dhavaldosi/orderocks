@@ -11,6 +11,7 @@ import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 import com.orderocks.pages.ThankYouPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class OrderDetailsTest extends BaseClass {
@@ -24,6 +25,7 @@ public class OrderDetailsTest extends BaseClass {
 	}
 
 	@Test(description = "Order Details")
+	@Author("Your Name")
 	public void verifyOrderDetails() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

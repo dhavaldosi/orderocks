@@ -12,6 +12,7 @@ import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class MyReviews extends BaseClass {
@@ -24,7 +25,8 @@ public class MyReviews extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test(description = "my account reviews")
+	@Test(description = "My account reviews")
+	@Author("Your Name")
 	public void verifyReviews() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

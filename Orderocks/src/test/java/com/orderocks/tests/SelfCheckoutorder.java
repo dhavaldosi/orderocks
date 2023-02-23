@@ -12,6 +12,7 @@ import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 import com.orderocks.pages.ThankYouPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class SelfCheckoutorder extends BaseClass {
@@ -25,6 +26,7 @@ public class SelfCheckoutorder extends BaseClass {
 	}
 
 	@Test(description = "Process self checkout order")
+	@Author("Your Name")
 	public void verifySelfCheckoutOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

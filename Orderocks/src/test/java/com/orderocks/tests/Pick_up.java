@@ -14,6 +14,7 @@ import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 import com.orderocks.pages.ThankYouPage;
 
+import base.Author;
 import base.BaseClass;
 
 
@@ -28,7 +29,9 @@ public class Pick_up extends BaseClass {
 		driver = initialzeDriver();
 		log.info("Driver has initialized.");
 	}
+	
 	@Test(description = "Process an order")
+	@Author("Your Name")
 	public void verifyCreateAnOder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

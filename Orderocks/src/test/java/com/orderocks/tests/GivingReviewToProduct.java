@@ -12,6 +12,7 @@ import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class GivingReviewToProduct extends BaseClass {
@@ -25,6 +26,7 @@ public class GivingReviewToProduct extends BaseClass {
 	}
 
 	@Test(description = "Giving reviews to the product")
+	@Author("Your Name")
 	public void EnterReviews() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
+
+import base.Author;
 import base.BaseClass;
 
 public class LoginTest extends BaseClass {
@@ -22,12 +24,14 @@ public class LoginTest extends BaseClass {
 	}
 
 	@Test(description = "Login popup title")
+	@Author("Your Name")
 	public void verifyLogin() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		Assert.assertEquals(login.getTitle(), "Let's get you started");
 	}
 	
 	@Test(description = "Verify Logout")
+	@Author("Your Name")
 	public void verifyLogOut() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

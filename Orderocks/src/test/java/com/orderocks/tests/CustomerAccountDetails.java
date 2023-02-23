@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class CustomerAccountDetails extends BaseClass {
@@ -23,6 +24,7 @@ public class CustomerAccountDetails extends BaseClass {
 	}
 
 	@Test(description = "Verify tabs in customer account details")
+	@Author("Your Name")
 	public void verifyCustomerAccountDetailsTabs() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

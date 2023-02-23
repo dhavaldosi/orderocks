@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class UnableToAddAnotherVendorproduct extends BaseClass {
@@ -23,6 +24,7 @@ public class UnableToAddAnotherVendorproduct extends BaseClass {
 	}
 
 	@Test(description = "Unable To Add Another Vendor product")
+	@Author("Your Name")
 	public void verifyUnableToAddAnotherVendorProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
