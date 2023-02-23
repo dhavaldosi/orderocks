@@ -104,8 +104,11 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[value='Add']")
 	WebElement add;
-
-	@FindBy(css = "[class='cart-qty']")
+	
+	@FindBy(css = "[class='button-2 continue-shopping-button']")
+	WebElement continueShopping;
+	
+    @FindBy(css = "[class='cart-qty']")
 	WebElement cart;
 
 	@FindBy(css = "[id='checkout']")
@@ -276,6 +279,12 @@ public class HomePage extends BaseClass {
 
 	public WebElement add() {
 		return add;
+	}
+	
+
+	public HomePage clickContinueShopping() {
+		clickOnElement(continueShopping);
+		return this;
 	}
 
 	public HomePage clickSearchBar() {
