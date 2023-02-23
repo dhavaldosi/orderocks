@@ -124,6 +124,13 @@ public class CheckOutPage extends BaseClass {
 
 	@FindBy(xpath = " [@id=\"shopping-cart-form\"][1]")
 	WebElement shoppingCartFrom;
+	
+	@FindBy(xpath = "//*[starts-with(@id,'slot_body')and not(contains(@style,'display'))]/ul/li[2]/span/label")
+	WebElement pmPickUpSlot;
+	
+		@FindBy(css = "[class='Pickup']")
+	WebElement Pickup;
+	
 
 	public CheckOutPage clickSearchBar() {
 		clickOnElement(searchBar);
@@ -202,7 +209,17 @@ public class CheckOutPage extends BaseClass {
 		log.info("Selected vendor.");
 		return this;
 	}
-
+	public CheckOutPage selectSlotOfPickUp() {
+		clickOnElement(pmPickUpSlot);
+		log.info("Selected pickup slot.");
+		return this;
+	}
+	
+	public CheckOutPage selectPickUp() {
+		clickOnElement(Pickup);
+		log.info("Selected Pick Up.");
+		return this;
+	}
 	public CheckOutPage selectSlotOfDelivery() {
 		clickOnElement(pmSlot);
 		log.info("Selected delivery slot.");
