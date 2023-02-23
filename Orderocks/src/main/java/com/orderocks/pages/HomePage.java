@@ -118,6 +118,11 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//a[text()='Mythri']")
 	WebElement selectShop;
 
+	@FindBy(css = "[class='ico-account opener']")
+	WebElement MyAccount;
+	
+	@FindBy(css = "['class='ico-logout']")
+	WebElement Logout;
 	
 	public HomePage hoverAllCategories() {
 		hoverOnElement(allCategories);
@@ -275,6 +280,14 @@ public class HomePage extends BaseClass {
 	public boolean isWelComeMessagePresent() {
 		return elementIsPresent(welComeMessage);
 	}
-
+	public HomePage clickMyAccount() {
+		clickOnElement(MyAccount);
+		return this;
+	}
+	
+	public HomePage clickLogout() {
+		clickOnElement(Logout);
+		return this;
+	}
 	
 }

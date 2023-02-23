@@ -34,6 +34,7 @@ public class LoginPage extends BaseClass {
 
 	@FindBy(css = "[class='ui-dialog-title']")
 	WebElement dialogTitle;
+	
 
 	public LoginPage clickLoginLink() {
 		clickOnElement(loginLink);

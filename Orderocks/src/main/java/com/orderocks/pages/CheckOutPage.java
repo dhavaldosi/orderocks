@@ -109,7 +109,13 @@ public class CheckOutPage extends BaseClass {
 
 	@FindBy(xpath = "//*[starts-with(@id,'delivery_slot_body')and not(contains(@style,'display'))]/ul/li[2]/span/label")
 	WebElement pmSlot;
+	
+	@FindBy(css = " [class='shipping-cost']")
+	WebElement shippingcost;
 
+	@FindBy(xpath = " [@id=\"shopping-cart-form\"][1]")
+	WebElement shoppingCartFrom;
+	
 	public CheckOutPage clickSearchBar() {
 		clickOnElement(searchBar);
 		log.info("Clicked on search bar.");
@@ -266,7 +272,17 @@ public class CheckOutPage extends BaseClass {
 		log.info("Clicked on continue payment information");
 		return this;
 	}
-
+	
+	public String getShippingcost() {
+		waitForelement(shippingcost);
+		return shippingcost.getText();
+}
+	
+	public String getshoppingCartFrom() {
+		waitForelement(shoppingCartFrom);
+		return shoppingCartFrom.getText();
+		
+	}
 	public CheckOutPage clickConfirmOrder() {
 		clickOnElement(confirm);
 		log.info("Clicked on confirm order.");
