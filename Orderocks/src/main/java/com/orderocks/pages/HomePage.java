@@ -712,5 +712,9 @@ public class HomePage extends BaseClass {
 		log.info(productSubTotal);
 		return this;
 	}
+	public String getalertMessage() {
+		//log.info("Alert message is :Changing stores may remove items in cart "+());
+		return result.getText();
 	
+	}	
 }

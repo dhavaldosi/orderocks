@@ -24,7 +24,7 @@ public class Updateshoppingcart extends BaseClass {
 	}
 
 	@Test(description = "Update Shopping Cart")
-	@Author("Your Name")
+	@Author("Pratibha Kumbhar")
 	public void Verifyselfcheckoutorder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

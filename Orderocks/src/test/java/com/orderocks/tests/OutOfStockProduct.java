@@ -35,7 +35,7 @@ public class OutOfStockProduct extends BaseClass {
 	}
 
 	@Test(description = "Out Of Stock After Login", priority=2)
-	@Author("Your Name")
+	@Author("Pratibha Kumbhar")
 	public void outOfStockProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
