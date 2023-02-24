@@ -130,6 +130,39 @@ public class CheckOutPage extends BaseClass {
 	
 		@FindBy(css = "[class='Pickup']")
 	WebElement Pickup;
+		
+		
+		@FindBy(css = "[class ='address-select valid']")
+		WebElement addNewBillingAddress;
+
+		@FindBy(css ="[id='BillingNewAddress_FirstName']")
+		WebElement FirstName;
+	     @FindBy(css = "[id ='BillingNewAddress_LastName']")
+	     WebElement LastName; 
+
+	     @FindBy(css = "[id='BillingNewAddress_Email']")
+	     WebElement EmailId;
+
+	     @FindBy(css = "[id='BillingNewAddress_CountryId']")
+	     WebElement CountryId;
+
+	     @FindBy(css = "[id='BillingNewAddress_StateProvinceId']")
+	     WebElement StateId;
+
+	     @FindBy(css = "[id='BillingNewAddress_City']")
+	     WebElement City;
+
+	    @FindBy(css = "[id='BillingNewAddress_Address1']")
+	     WebElement Address1;
+
+	    @FindBy(css = "[id='BillingNewAddress_ZipPostalCode']")
+	    WebElement ZipPostalCode;
+
+	 	@FindBy(css = " [id='BillingNewAddress_PhoneNumber']")
+	    WebElement PhoneNumber;
+
+	 	@FindBy(css = "[class='button-1 new-address-next-step-button'] ")
+	    WebElement AddButton1;
 	
 
 	public CheckOutPage clickSearchBar() {
@@ -298,6 +331,79 @@ public class CheckOutPage extends BaseClass {
 		log.info("Clicked on continue payment information");
 		return this;
 	}
+	
+	public CheckOutPage clickondropdown() {
+		clickOnElement(addNewBillingAddress);
+		log.info("addNewBillingAddress");
+		return this;
+	}
+	
+
+	public CheckOutPage addNewBillingAddress() {
+		clickOnElement (addNewBillingAddress);
+		log.info("clicked on addNewBillingAddress");
+
+	return this;
+	}
+
+	public CheckOutPage selectByVisibleText() {
+		Select select = new Select(addNewBillingAddress);
+		select.selectByVisibleText("New Address");
+		return this;
+	}
+		public CheckOutPage addFirstName() {
+			FirstName.sendKeys("Test");
+			log.info("addFirstName");
+			return this;
+		}
+		public CheckOutPage addLastName() {
+			LastName.sendKeys("Test_1");
+			log.info("addLastName");
+			return this;
+		}
+		public CheckOutPage addEmailId() {
+			EmailId.sendKeys("robertjgregg@jourrapide.com");
+			log.info("addEmailId");
+			return this;
+		}
+		public CheckOutPage selectByVisibleText1() {
+			Select select = new Select(CountryId);
+			select.selectByVisibleText("United States");
+			return this;
+		}
+
+		public CheckOutPage addCity() {
+			City.sendKeys("Denver");
+			log.info("addCity");
+			return this;
+		}
+		public CheckOutPage selectByVisibleText2() {
+			Select select = new Select(StateId);
+			select.selectByVisibleText("Colorado");
+			return this;
+		}
+		public CheckOutPage addAddress1() {
+			Address1.sendKeys("661 Elati St");
+			log.info("Address1");
+			return this;
+		}
+		public CheckOutPage addZipPostalCode() {
+			 ZipPostalCode.sendKeys("80204");
+			log.info(" ZipPostalCode");
+			return this;
+		}
+		public CheckOutPage addPhoneNumber() {
+			PhoneNumber.sendKeys("1023456789");
+			log.info(" PhoneNumber");
+			return this;
+		}
+
+		public CheckOutPage addAddButton1() {
+			clickOnElement (AddButton1);
+			log.info(" addAddButton1");
+			return this;
+		}
+	
 	
 	public String getShippingcost() {
 		waitForelement(shippingcost);
