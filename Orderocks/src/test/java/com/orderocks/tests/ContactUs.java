@@ -24,7 +24,7 @@ public class ContactUs extends BaseClass {
 	}
 
 	@Test(description = "Twak chat agent message")
-	@Author("Your Name")
+	@Author("Avantika Tambekar")
 	public void verifyTawk() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

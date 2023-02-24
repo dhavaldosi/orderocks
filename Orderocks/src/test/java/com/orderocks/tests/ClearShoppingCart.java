@@ -11,6 +11,7 @@ import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
+import base.Author;
 import base.BaseClass;
 
 public class ClearShoppingCart extends BaseClass {
@@ -24,6 +25,7 @@ public class ClearShoppingCart extends BaseClass {
 	}
 
 	@Test(description = "Process with clear shopping cart")
+	@Author("Avantika Tambekar")
 	public void verifyClearShoppingCart() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

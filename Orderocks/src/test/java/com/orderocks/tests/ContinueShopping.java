@@ -24,7 +24,7 @@ public class ContinueShopping extends BaseClass {
 	}
 
 	@Test(description = "Process with continue shopping")
-	@Author("Your Name")
+	@Author("Avantika Tambekar")
 	public void verifyContinueShopping() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

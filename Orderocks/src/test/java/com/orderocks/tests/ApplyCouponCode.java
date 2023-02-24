@@ -26,7 +26,7 @@ public class ApplyCouponCode extends BaseClass {
 	}
 
 	@Test(description = "Apply coupon code")
-	@Author("Your Name")
+	@Author("Avantika Tambekar")
 	public void applyCouponCode() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
