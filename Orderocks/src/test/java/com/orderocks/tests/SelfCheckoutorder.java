@@ -26,7 +26,7 @@ public class SelfCheckoutorder extends BaseClass {
 	}
 
 	@Test(description = "Process self checkout order")
-	@Author("Your Name")
+	@Author("Pratibha Kumbhar")
 	public void verifySelfCheckoutOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
