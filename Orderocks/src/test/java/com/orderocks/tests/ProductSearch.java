@@ -24,7 +24,7 @@ public class ProductSearch extends BaseClass {
 	}
 
 	@Test(description = "Search product")
-	@Author("Your Name")
+	@Author("Shrinivas Thorate")
 	public void verifySearchProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

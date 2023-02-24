@@ -222,6 +222,50 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[class='submitReviewResult']")
 	WebElement verifyreview;
+	
+	@FindBy(xpath = "//*[@id='ZipCode']")
+	WebElement zipCode;
+
+	@FindBy(xpath = "//span[text()='80134']")
+	WebElement zipCodeToLogin;
+
+	@FindBy(xpath = "//span[text()='Restaurant']")
+	WebElement restaurant;
+
+	@FindBy(xpath = "//a[text()=\"PK Dessert home\"]")
+	WebElement pkDessertHome;
+
+	@FindBy(xpath = ("//*[@class=\"bar-notification error\"]"))
+	WebElement barNotificationError;
+
+	@FindBy(xpath = "//*[@class=\"content\"]")
+	WebElement outOfStockText;
+
+	@FindBy(css = "td[class=remove-from-cart]")
+	WebElement removeProductFromCart;
+
+	@FindBy(css = "[class=\"button-2 update-cart-button\"]")
+	WebElement updateShoppingCart;
+
+	@FindBy(css = "[class='no-data']")
+	WebElement shoppingCartIsEmptyText;
+	
+	@FindBy(css = "[class='customer-orders']")
+	WebElement order;
+
+
+	@FindBy(css = "[class='button-2 return-items-button']")
+	WebElement returnitem;
+	
+
+	@FindBy(css = "[class='button-1 submit-return-request-button']")
+	WebElement returnRequest;
+
+	@FindBy(css = "	[name='quantity2461']")
+	WebElement selectQty;
+	
+	@FindBy(xpath = "//h1[text()='Return item(s) from ']")
+	WebElement verifyResult;
 
 	public HomePage selectMyAccountTab(String selectTab) {
 
@@ -494,33 +538,6 @@ public class HomePage extends BaseClass {
 		return elementIsPresent(welComeMessage);
 	}
 
-	@FindBy(xpath = "//*[@id='ZipCode']")
-	WebElement zipCode;
-
-	@FindBy(xpath = "//span[text()='80134']")
-	WebElement zipCodeToLogin;
-
-	@FindBy(xpath = "//span[text()='Restaurant']")
-	WebElement restaurant;
-
-	@FindBy(xpath = "//a[text()=\"PK Dessert home\"]")
-	WebElement pkDessertHome;
-
-	@FindBy(xpath = ("//*[@class=\"bar-notification error\"]"))
-	WebElement barNotificationError;
-
-	@FindBy(xpath = "//*[@class=\"content\"]")
-	WebElement outOfStockText;
-
-	@FindBy(css = "td[class=remove-from-cart]")
-	WebElement removeProductFromCart;
-
-	@FindBy(css = "[class=\"button-2 update-cart-button\"]")
-	WebElement updateShoppingCart;
-
-	@FindBy(css = "[class='no-data']")
-	WebElement shoppingCartIsEmptyText;
-
 	public HomePage clickZipCode() {
 		clickOnElement(zipCode);
 		log.info("Clicked on zip code.");
@@ -669,6 +686,38 @@ public class HomePage extends BaseClass {
 	public String getCategoryList() {
 		waitForelement(dropdown);
 		return dropdown.getText();
+	}
+	
+	public HomePage clicktonOrderTitle() {
+		clickOnElement(order);
+		return this;
+	}
+	
+	public HomePage clicktonReturnItem() {
+		clickOnElement(returnitem);
+		return this;
+    }
+	
+	public HomePage clicktonSubmitReturnRequest() {
+		clickOnElement(returnRequest);
+		return this;
+	}
+	public HomePage clicktonQuntityReturnRequest() {
+		clickOnElement(selectQty);
+		return this;
+	}
+	
+
+	public HomePage selectByVisibleText2() {
+		Select select = new Select(dropdown);
+		waitForelement(dropdown);
+		select.selectByIndex(1);
+		return this;
+	}
+	
+	public String getVerifyReturnMsg() {
+		waitForelement(verifyResult);
+		return verifyResult.getText();
 	}
 
 }

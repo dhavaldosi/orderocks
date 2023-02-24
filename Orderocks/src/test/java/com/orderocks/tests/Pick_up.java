@@ -31,7 +31,7 @@ public class Pick_up extends BaseClass {
 	}
 	
 	@Test(description = "Process an order")
-	@Author("Your Name")
+	@Author("Shrinivas Thorate")
 	public void verifyCreateAnOder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
