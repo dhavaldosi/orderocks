@@ -222,7 +222,7 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[class='submitReviewResult']")
 	WebElement verifyreview;
-
+	
 	public HomePage selectMyAccountTab(String selectTab) {
 
 		for (int i = 0; i < myAccountTabs.size(); i++) {
@@ -670,5 +670,47 @@ public class HomePage extends BaseClass {
 		waitForelement(dropdown);
 		return dropdown.getText();
 	}
+    
+	@FindBy(css="span[class=\"product-unit-price\"]")
+	WebElement productPrice;
+	
 
+	@FindBy(css="input[class=\"qty-input\"]")
+	WebElement cartQuantity;
+	
+	@FindBy(css="span[class=\"product-subtotal\"]")
+	WebElement productSubtotal;
+	
+	public HomePage clickOnCartQuantity() {
+		waitForelement(cartQuantity);
+		clickOnElement(cartQuantity);
+		log.info("Clicked On Cart Quantity");
+		return this;
+	}
+
+	public HomePage enterCartQuantity() {
+		type(cartQuantity, "3");
+		log.info("Entered cart quantity");
+		return this;
+}
+	
+	public HomePage clearcartquantity() {
+		 cartQuantity.clear();
+		 log.info("Cleared cart quantity");
+		return this;
+}
+    
+	public HomePage getProductPrice() {
+		waitForelement(productPrice);
+	//String productPrice= productPrice.getText();
+	log.info("productPrice");
+		return this;
+	}
+	
+	public HomePage getProductSubTotal() {
+		String productSubTotal= productSubtotal.getText();
+		log.info(productSubTotal);
+		return this;
+	}
+	
 }
