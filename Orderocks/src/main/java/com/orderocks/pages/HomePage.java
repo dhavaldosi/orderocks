@@ -18,6 +18,9 @@ public class HomePage extends BaseClass {
 	}
 
 	WebDriver driver;
+	
+	@FindBy(css = "[class='header-logo'] [title='ORDEROCKS']")
+	WebElement logo;
 
 	@FindBy(xpath = "//a[text()='Contact us']")
 	WebElement contactus;
@@ -237,6 +240,11 @@ public class HomePage extends BaseClass {
 
 	public String getSearchBoxPlaceHolderValue() {
 		return searchBox.getAttribute("placeholder");
+	}
+	
+	public HomePage clicklogo() {
+		clickOnElement(logo);
+		return this;
 	}
 
 	public HomePage clickContactUs() {
