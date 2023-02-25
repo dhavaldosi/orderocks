@@ -78,7 +78,7 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[id='set-zipcode-button']")
 	WebElement zipCodeButton;
-	
+
 	@FindBy(css = "[value='Clear shopping cart']")
 	WebElement clearShoppingCart;
 
@@ -225,7 +225,10 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "[class='submitReviewResult']")
 	WebElement verifyreview;
-	
+
+	@FindBy(css = "[class='product-name']")
+	WebElement prtname1;
+
 	public HomePage selectMyAccountTab(String selectTab) {
 
 		for (int i = 0; i < myAccountTabs.size(); i++) {
@@ -290,12 +293,11 @@ public class HomePage extends BaseClass {
 		log.info("Clicked on logout.");
 		return this;
 	}
-	
+
 	public HomePage scrollToElementAndClickClearShoppingCart() {
 		scrollToElementAndClick(clearShoppingCart);
 		return this;
 	}
-
 
 	public HomePage clickMilkProducts() {
 		hoverAndClickOnElement(milkProducts);
@@ -454,6 +456,7 @@ public class HomePage extends BaseClass {
 	}
 
 	public HomePage clickAddToCart() {
+		waitForelement(addToCart);
 		clickOnElement(addToCart);
 		log.info("Clicked on add to cart.");
 		return this;
@@ -678,17 +681,16 @@ public class HomePage extends BaseClass {
 		waitForelement(dropdown);
 		return dropdown.getText();
 	}
-    
-	@FindBy(css="span[class=\"product-unit-price\"]")
-	WebElement productPrice;
-	
 
-	@FindBy(css="input[class=\"qty-input\"]")
+	@FindBy(css = "span[class=\"product-unit-price\"]")
+	WebElement productPrice;
+
+	@FindBy(css = "input[class=\"qty-input\"]")
 	WebElement cartQuantity;
-	
-	@FindBy(css="span[class=\"product-subtotal\"]")
+
+	@FindBy(css = "span[class=\"product-subtotal\"]")
 	WebElement productSubtotal;
-	
+
 	public HomePage clickOnCartQuantity() {
 		waitForelement(cartQuantity);
 		clickOnElement(cartQuantity);
@@ -700,29 +702,36 @@ public class HomePage extends BaseClass {
 		type(cartQuantity, "3");
 		log.info("Entered cart quantity");
 		return this;
-}
-	
+	}
+
 	public HomePage clearcartquantity() {
-		 cartQuantity.clear();
-		 log.info("Cleared cart quantity");
-		return this;
-}
-    
-	public HomePage getProductPrice() {
-		waitForelement(productPrice);
-	//String productPrice= productPrice.getText();
-	log.info("productPrice");
+		cartQuantity.clear();
+		log.info("Cleared cart quantity");
 		return this;
 	}
-	
+
+	public HomePage getProductPrice() {
+		waitForelement(productPrice);
+		// String productPrice= productPrice.getText();
+		log.info("productPrice");
+		return this;
+	}
+
 	public HomePage getProductSubTotal() {
-		String productSubTotal= productSubtotal.getText();
+		String productSubTotal = productSubtotal.getText();
 		log.info(productSubTotal);
 		return this;
 	}
+
 	public String getalertMessage() {
-		//log.info("Alert message is :Changing stores may remove items in cart "+());
+		// log.info("Alert message is :Changing stores may remove items in cart "+());
 		return result.getText();
-	
-	}	
+
+	}
+
+	public String getProductName() {
+		waitForelement(prtname1);
+		return prtname1.getText();
+	}
+
 }
