@@ -18,7 +18,7 @@ public class HomePage extends BaseClass {
 	}
 
 	WebDriver driver;
-	
+
 	@FindBy(css = "[class='header-logo'] [title='ORDEROCKS']")
 	WebElement logo;
 
@@ -244,7 +244,7 @@ public class HomePage extends BaseClass {
 	public String getSearchBoxPlaceHolderValue() {
 		return searchBox.getAttribute("placeholder");
 	}
-	
+
 	public HomePage clicklogo() {
 		clickOnElement(logo);
 		return this;
@@ -690,39 +690,36 @@ public class HomePage extends BaseClass {
 
 	@FindBy(css = "span[class=\"product-subtotal\"]")
 	WebElement productSubtotal;
-	
-	@FindBy(css="[href='/vendor/apply']")
+
+	@FindBy(css = "[href='/vendor/apply']")
 	WebElement applyForVendorAccount;
-	
-	@FindBy(css="[name=vendor_attribute_1]")
+
+	@FindBy(css = "[name=vendor_attribute_1]")
 	WebElement enterVendorContactNumber;
 
-	@FindBy(css="[class=\'name\'][placeholder=\'Enter vendor name.\']")
+	@FindBy(css = "[class=\'name\'][placeholder=\'Enter vendor name.\']")
 	WebElement enterVendorName;
-	
-	@FindBy(css="[class='name'][placeholder='Enter your email address.']")
+
+	@FindBy(css = "[class='name'][placeholder='Enter your email address.']")
 	WebElement enterVendorEmailAddress;
-	
-	@FindBy(css="[class='description']")
+
+	@FindBy(css = "[class='description']")
 	WebElement enterVendorDescription;
 
-	
-	@FindBy(css="[name='vendor_attribute_3']")
+	@FindBy(css = "[name='vendor_attribute_3']")
 	WebElement enterVendorAddress;
-	
-	@FindBy(css="[name=\"vendor_attribute_4\"]")
-	WebElement enterPickUpInstructions;
-	
-	@FindBy(css="div[class=\"buttons\"] [type=\"submit\"]")
-	WebElement submitVendorApplication;
-	
-	@FindBy(css="[class=\"result\"]")
-	WebElement vendorApplicationResult;
-	
-	@FindBy(css="[class=\"result\"]")
-	WebElement reApplyForVendorAccountResult;
 
-	
+	@FindBy(css = "[name=\"vendor_attribute_4\"]")
+	WebElement enterPickUpInstructions;
+
+	@FindBy(css = "div[class=\"buttons\"] [type=\"submit\"]")
+	WebElement submitVendorApplication;
+
+	@FindBy(css = "[class=\"result\"]")
+	WebElement vendorApplicationResult;
+
+	@FindBy(css = "[class=\"result\"]")
+	WebElement reApplyForVendorAccountResult;
 
 	public HomePage clickOnCartQuantity() {
 		waitForelement(cartQuantity);
@@ -767,60 +764,59 @@ public class HomePage extends BaseClass {
 		return prtname1.getText();
 	}
 
-
 	public HomePage clickOnApplyForVendorAccount() {
 		scrollToElement(footerMiddleSection);
 		waitForelement(applyForVendorAccount);
 		clickOnElement(applyForVendorAccount);
 		return this;
-		
+
 	}
-	
+
 	public HomePage enterVendorName() {
-		clickOnElement (enterVendorName);
+		clickOnElement(enterVendorName);
 		type(enterVendorName, "Vendor A");
 		log.info("Entered Vendor Name");
 		return this;
 	}
-	
+
 	public HomePage clickOnenterVendorEmailaddress() {
 		waitForelement(enterVendorEmailAddress);
 		clickOnElement(enterVendorEmailAddress);
 		log.info("clicked On enter Vendor email Address");
 		return this;
 	}
-	
-	
-	
+
 	public HomePage clearExistingEmailaddress() {
 		waitForelement(enterVendorEmailAddress);
 		enterVendorEmailAddress.clear();
 		log.info("Cleared Existing Email Address");
 		return this;
 	}
-	
+
 	public HomePage enterVendorEmailaddress() {
 		waitForelement(enterVendorEmailAddress);
-		clickOnElement (enterVendorEmailAddress);
+		clickOnElement(enterVendorEmailAddress);
 		type(enterVendorEmailAddress, "vendora@gmail.com");
 		log.info("Entered Vendor Email Address");
-		return this;	
-	
+		return this;
+
 	}
-	
+
 	public HomePage enterVendorDescription() {
-	waitForelement(enterVendorDescription);
-	clickOnElement (enterVendorDescription);
-	type(enterVendorDescription, "Automation Test-We, Vendor A, supplies an Indian Snacks of rich quality ");
-	return this;
-}
+		waitForelement(enterVendorDescription);
+		clickOnElement(enterVendorDescription);
+		type(enterVendorDescription, "Automation Test-We, Vendor A, supplies an Indian Snacks of rich quality ");
+		return this;
+	}
+
 	public HomePage enterVendorContactNumber() {
 		waitForelement(enterVendorContactNumber);
-		clickOnElement (enterVendorContactNumber);
+		clickOnElement(enterVendorContactNumber);
 		type(enterVendorContactNumber, "0123456789");
 		log.info("Entered vendor contact Number");
 		return this;
 	}
+
 	public HomePage enterVendorAddress() {
 		waitForelement(enterVendorAddress);
 		clickOnElement(enterVendorAddress);
@@ -828,6 +824,7 @@ public class HomePage extends BaseClass {
 		log.info("Entered vendor Address");
 		return this;
 	}
+
 	public HomePage enterPickUpInstructions() {
 		clickOnElement(enterPickUpInstructions);
 		waitForelement(enterPickUpInstructions);
@@ -835,25 +832,24 @@ public class HomePage extends BaseClass {
 		log.info("Entered Pick up Instructions");
 		return this;
 	}
+
 	public HomePage submitVendorApplication() {
 		waitForelement(submitVendorApplication);
 		clickOnElement(submitVendorApplication);
 		log.info("Clicked On Submit");
 		return this;
 	}
-	
-			
-			public String vendorApplicationResult() {
-				waitForelement(vendorApplicationResult);
-				log.info("vendorApplicationResult is : " + vendorApplicationResult.getText());
-				return vendorApplicationResult.getText();
-			}
 
-			public String reApplyForVendorAccountResult() {
-				waitForelement(reApplyForVendorAccountResult);
-				log.info("reApplyForVendorAccountResult is : " + reApplyForVendorAccountResult.getText());
-				return vendorApplicationResult.getText();
+	public String vendorApplicationResult() {
+		waitForelement(vendorApplicationResult);
+		log.info("vendorApplicationResult is : " + vendorApplicationResult.getText());
+		return vendorApplicationResult.getText();
+	}
 
-		}
+	public String reApplyForVendorAccountResult() {
+		waitForelement(reApplyForVendorAccountResult);
+		log.info("reApplyForVendorAccountResult is : " + reApplyForVendorAccountResult.getText());
+		return vendorApplicationResult.getText();
+
+	}
 }
-
