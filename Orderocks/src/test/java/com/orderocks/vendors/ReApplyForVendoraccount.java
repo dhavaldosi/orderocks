@@ -14,7 +14,7 @@ import com.orderocks.pages.LoginPage;
 import base.Author;
 import base.BaseClass;
 
-public class ApplyForVendor extends BaseClass {
+public class ReApplyForVendoraccount extends BaseClass {
 
 	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 
@@ -25,19 +25,22 @@ public class ApplyForVendor extends BaseClass {
 	}
 
 
-	@Test(description = "Apply For Vendor Account")
+	@Test(description = "Re-Apply For Vendor Account")
 	@Author("Pratibha Kumbhar")
-    public void verifyApplyForVendoraccount() {
+    public void verifyNotableToApllyForvendoraccountWithSamecredentials() {
     	 LoginPage login = new LoginPage(driver);
   		HomePage home = new HomePage(driver);
   		 login.clickLoginLink().provideCredentials().clickLoginButton();
   		 home.clickOnApplyForVendorAccount().enterVendorName().clickOnenterVendorEmailaddress().clearExistingEmailaddress().enterVendorEmailaddress()
   		     .enterVendorDescription().enterVendorContactNumber().enterVendorAddress().enterPickUpInstructions()
   		     .submitVendorApplication();
-  		Assert.assertEquals(home.vendorApplicationResult(),
-				"Your request has been submitted successfully. We'll contact you soon.");
+  		   Assert.assertEquals(home.vendorApplicationResult(),
+  					"Your request has been submitted successfully. We'll contact you soon.");
+  		   home.clickOnApplyForVendorAccount();
+  		   Assert.assertEquals(home.reApplyForVendorAccountResult(),
+  					"You already applied for a vendor account. Please register as a new customer in order to apply for one more vendor account.");
 	}
-  		@AfterTest
+	@AfterTest
 		public void tearDown() {
 			driver.close();
 

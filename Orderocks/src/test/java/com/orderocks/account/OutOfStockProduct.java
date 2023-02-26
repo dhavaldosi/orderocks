@@ -25,7 +25,7 @@ public class OutOfStockProduct extends BaseClass {
 	}
 	
 	@Test(description = "Out Of Stock without Login", priority=1)
-	@Author("Your Name")
+	@Author("Pratibha Kumbhar")
 	public void withoutLoginOutOfStock() {
 		HomePage home = new HomePage(driver);
 		home.clickRestaurant().clickZipCode().enterZipCode().clickZipCodeButton().getVendorList().selectpkDessertHome()

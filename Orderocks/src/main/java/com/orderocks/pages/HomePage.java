@@ -754,7 +754,7 @@ public class HomePage extends BaseClass {
 	}
 
 	public String getalertMessage() {
-		// log.info("Alert message is :Changing stores may remove items in cart "+());
+    log.info("Alert message is :Changing stores may remove items in the cart");
 		return result.getText();
 
 	}
@@ -848,6 +848,7 @@ public class HomePage extends BaseClass {
 
 	public String reApplyForVendorAccountResult() {
 		waitForelement(reApplyForVendorAccountResult);
+		log.info("reAppliedForvendoraccount");
 		log.info("reApplyForVendorAccountResult is : " + reApplyForVendorAccountResult.getText());
 		return vendorApplicationResult.getText();
 
