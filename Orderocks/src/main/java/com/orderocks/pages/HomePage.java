@@ -229,6 +229,21 @@ public class HomePage extends BaseClass {
 	@FindBy(css = "[class='product-name']")
 	WebElement prtname1;
 
+	@FindBy(css = "[class='customer-orders']")
+	WebElement order;
+
+	@FindBy(css = "[class='button-2 return-items-button']")
+	WebElement returnItem;
+
+	@FindBy(css = "[class='button-1 submit-return-request-button']")
+	WebElement returnRequest;
+
+	@FindBy(css = "	[name='quantity2461']")
+	WebElement selectQty;
+	
+	@FindBy(xpath = "//h1[text()='Return item(s) from ']")
+	WebElement verifyResult;
+
 	public HomePage selectMyAccountTab(String selectTab) {
 
 		for (int i = 0; i < myAccountTabs.size(); i++) {
@@ -851,6 +866,40 @@ public class HomePage extends BaseClass {
 		log.info("reAppliedForvendoraccount");
 		log.info("reApplyForVendorAccountResult is : " + reApplyForVendorAccountResult.getText());
 		return vendorApplicationResult.getText();
-
+	}	
+	
+		public HomePage clicktonOrderTitle() {
+			clickOnElement(order);
+			return this;
 	}
+		
+		public HomePage clicktonReturnItem() {
+			clickOnElement(returnItem);
+			return this;
+	}
+		
+		public HomePage clicktonSubmitReturnRequest() {
+			clickOnElement(returnRequest);
+			return this;
+	}
+		
+		public HomePage clicktonQuntityReturnRequest() {
+			clickOnElement(selectQty);
+			return this;
+	}
+		
+		public HomePage selectByVisibleText2() {
+			Select select = new Select(dropdown);
+			waitForelement(dropdown);
+			select.selectByIndex(1);
+			return this;
+	}
+		
+		public String getVerifyReturnMsg() {
+			waitForelement(verifyResult);
+			return verifyResult.getText();
+	}
+
+
+		
 }
