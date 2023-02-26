@@ -24,7 +24,7 @@ public class ContactUs extends BaseClass {
 	}
 
 	@Test(description = "Twak chat agent message")
-	@Author("Avantika Tambekar")
+	@Author("Dhaval Dosi")
 	public void verifyTawk() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
@@ -33,12 +33,13 @@ public class ContactUs extends BaseClass {
 		Assert.assertEquals(
 				"Welcome to our site, if you need help simply reply to this message, we are online and ready to help.",
 				home.clickPreviousButton());
+		// To-Do For Dhaval This testcase is incomplete, Fix this
 	}
 	
 	
 	
-	@Test(description = "verify contact us")
-	@Author("Your Name")
+	@Test(description = "Verify contact us")
+	@Author("Avantika Tambekar")
 	public void verifyContactUs() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
