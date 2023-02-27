@@ -247,6 +247,7 @@ public class HomePage extends BaseClass {
 	public HomePage selectMyAccountTab(String selectTab) {
 
 		for (int i = 0; i < myAccountTabs.size(); i++) {
+			String value = myAccountTabs.get(i).getText();
 			if (myAccountTabs.get(i).getText().equals(selectTab)) {
 				clickOnElement(myAccountTabs.get(i));
 				log.info("Selected tab is : " + selectTab);
@@ -507,6 +508,7 @@ public class HomePage extends BaseClass {
 	}
 
 	public String getPageTitle() {
+		waitForelement(pageTitle);
 		return pageTitle.getText();
 	}
 
