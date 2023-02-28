@@ -243,14 +243,27 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(xpath = "//h1[text()='Return item(s) from ']")
 	WebElement verifyResult;
+	
+	@FindBy(css = "[class='tbody'] li a[class='name']")
+	List<WebElement> getAllVendors;
 
 	public HomePage selectMyAccountTab(String selectTab) {
 
 		for (int i = 0; i < myAccountTabs.size(); i++) {
-			String value = myAccountTabs.get(i).getText();
 			if (myAccountTabs.get(i).getText().equals(selectTab)) {
 				clickOnElement(myAccountTabs.get(i));
 				log.info("Selected tab is : " + selectTab);
+				break;
+			}
+		}
+		return this;
+	}
+
+	public HomePage selectVendor(String selectVendor) {
+		for (int i = 0; i < getAllVendors.size(); i++) {
+			if (getAllVendors.get(i).getText().equals(selectVendor)) {
+				clickOnElement(getAllVendors.get(i));
+				log.info("Selected tab is : " + selectVendor);
 				break;
 			}
 		}
