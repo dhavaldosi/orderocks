@@ -26,7 +26,7 @@ public class ReOrder extends BaseClass {
 	}
 
 	@Test(description = "ReOrder")
-	@Author("Your Name")
+	@Author("Pranita Mode")
 	public void verifyReOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
@@ -43,7 +43,7 @@ public class ReOrder extends BaseClass {
 		.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
 		.continuePaymentInformation().clickConfirmOrder();
 		
-		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully completed!");
+		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully processed!");
 	}
 
 	@AfterTest
