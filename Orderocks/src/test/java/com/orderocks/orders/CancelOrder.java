@@ -27,7 +27,7 @@ public class CancelOrder extends BaseClass {
 	}
 
 	@Test(description = "Cancel Order")
-	@Author("Your Name")
+	@Author("Pranita Mode")
 	public void verifyCancelOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
@@ -41,7 +41,7 @@ public class CancelOrder extends BaseClass {
 				.continuePaymentInformation().clickConfirmOrder();
 		thankyou.clickOrderDetails().clickCancelOrder().clickCancelthisOrder();
 		
-		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been cancel!");
+		Assert.assertEquals(thankyou.getOrderStatus(), "Cancelled!");
 	}
 
 	@AfterTest
