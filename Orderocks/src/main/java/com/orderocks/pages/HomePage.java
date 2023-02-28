@@ -12,6 +12,8 @@ import base.BaseClass;
 
 public class HomePage extends BaseClass {
 
+	private static final WebElement CustomerInfo = null;
+
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -902,6 +904,6 @@ public class HomePage extends BaseClass {
 			return verifyResult.getText();
 	}
 
-
+		
 		
 }

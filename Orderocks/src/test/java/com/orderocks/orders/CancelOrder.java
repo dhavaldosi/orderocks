@@ -27,7 +27,7 @@ public class CancelOrder extends BaseClass {
 	}
 
 	@Test(description = "Cancel Order")
-	@Author("Your Name")
+	@Author("Pranita Mode")
 	public void verifyCancelOrder() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
