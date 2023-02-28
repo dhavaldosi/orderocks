@@ -32,7 +32,7 @@ public class OrderDetailsTest extends BaseClass {
 		ThankYouPage thankyou = new ThankYouPage(driver);
 		CheckOutPage checkout = new CheckOutPage(driver);
 		login.clickLoginLink().provideCredentials().clickLoginButton();
-		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList().clickSearchBar()
+		home.clickZipCodeButton().selectGrocery().getVendorList().selectVendor("Konark Groceries").clickSearchBar()
 				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ").clickSearchIcon().clickAddToCart().clickOnCart();
 		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Self Checkout").selectSlotOfDelivery().continueShippingAddress()
 				.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
