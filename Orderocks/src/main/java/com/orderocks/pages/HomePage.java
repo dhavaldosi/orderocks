@@ -246,6 +246,39 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(css = "[class='tbody'] li a[class='name']")
 	List<WebElement> getAllVendors;
+	
+	@FindBy(css = "[class='ico-account opener']")
+	WebElement customerinfo;
+	
+	@FindBy(css = "[class='customer-orders']")
+	WebElement Orders;
+	
+	@FindBy(xpath = "//*[@class='section order-item'][1] //*[@class='buttons'] /input")
+	WebElement Details;
+	
+	@FindBy(css = "[class='button-1 re-order-button']")
+	WebElement ReOrder;
+	
+	public HomePage clickCustomerInfo() {
+		clickOnElement (customerinfo);
+		return this;
+	}
+	
+	public HomePage clickOrders() {
+		clickOnElement (Orders);
+		return this;
+	}
+	
+	public HomePage clickDetails() {
+		clickOnElement (Details);
+		return this;
+	}
+	
+	public HomePage clickReOrder() {
+		clickOnElement (ReOrder);
+		return this;
+	}
+	
 
 	public HomePage selectMyAccountTab(String selectTab) {
 
