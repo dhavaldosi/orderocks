@@ -247,6 +247,10 @@ public class HomePage extends BaseClass {
 	@FindBy(css = "[class='tbody'] li a[class='name']")
 	List<WebElement> getAllVendors;
 	
+	@FindBy(css = "[id='vendor_type'] [class*='owl-item'] [class='text']")
+	List<WebElement> getAllVendorType;
+	
+	
 	@FindBy(css = "[class='ico-account opener']")
 	WebElement customerinfo;
 	

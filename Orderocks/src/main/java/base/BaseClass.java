@@ -9,7 +9,9 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.maven.surefire.shared.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +20,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -53,6 +56,10 @@ public class BaseClass {
 
 	public void waitForelement(WebElement locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
+	}
+	
+	public void waitWithoutCondition() {
+		new WebDriverWait(driver, Duration.ofSeconds(60));
 	}
 
 	public void scrollToElement(WebElement locator) {
@@ -119,6 +126,20 @@ public class BaseClass {
 	public boolean elementIsPresent(WebElement locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.visibilityOf(locator));
 		return locator.isDisplayed();
+	}
+	
+	public String getAlertText() {
+		String alertText = null;
+		try {
+			waitWithoutCondition();
+			Alert alert = driver.switchTo().alert();
+			alertText = alert.getText();
+			alert.accept();
+
+		} catch (NoAlertPresentException e) {
+			e.printStackTrace();
+		}
+		return alertText;
 	}
 
 }

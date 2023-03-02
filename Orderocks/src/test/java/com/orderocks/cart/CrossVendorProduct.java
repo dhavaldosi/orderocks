@@ -3,18 +3,19 @@ package com.orderocks.cart;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.orderocks.pages.CheckOutPage;
 import com.orderocks.pages.HomePage;
 import com.orderocks.pages.LoginPage;
 
 import base.Author;
 import base.BaseClass;
 
-public class UnableToAddAnotherVendorproduct extends BaseClass {
+public class CrossVendorProduct extends BaseClass {
 
 	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 
@@ -29,19 +30,15 @@ public class UnableToAddAnotherVendorproduct extends BaseClass {
 	public void verifyUnableToAddAnotherVendorProduct() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
+		CheckOutPage checkout = new CheckOutPage(driver);
 		login.clickLoginLink().provideCredentials().clickLoginButton();
+		checkout.clearCartIfProductAlreadyAdded();
 		home.clickZipCodeButton().clickRestaurant().getVendorList().selectpkDessertHome().clickSearchBar()
-				.searchProduct("Cup cakes-Vanilla").clickSearchIcon().clickAddToCart().clickZipCodeButton().selectGrocery().getVendorList().selectVendorFromList();
-	   
-		Alert alert= driver.switchTo().alert();
-	   String text= driver.switchTo().alert().getText();
-	   
-	    
-	   //To Do
-	   //alert.getText();
-	   
+				.searchProduct("Cup cakes-Vanilla").clickSearchIcon().clickAddToCart().clickZipCodeButton()
+				.selectGrocery().getVendorList().selectVendorFromList();
+		Assert.assertEquals("Changing stores may remove items in the cart", getAlertText());
 	}
-	   
+
 	@AfterTest
 	public void tearDown() {
 		driver.close();
