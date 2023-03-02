@@ -246,6 +246,9 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(css = "[class='tbody'] li a[class='name']")
 	List<WebElement> getAllVendors;
+	
+	@FindBy(css = "[id='vendor_type'] [class*='owl-item'] [class='text']")
+	List<WebElement> getAllVendorType;
 
 	public HomePage selectMyAccountTab(String selectTab) {
 
@@ -259,11 +262,22 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
-	public HomePage selectVendor(String selectVendor) {
+	public HomePage selectVendor(String vendor) {
 		for (int i = 0; i < getAllVendors.size(); i++) {
-			if (getAllVendors.get(i).getText().equals(selectVendor)) {
+			if (getAllVendors.get(i).getText().equals(vendor)) {
 				clickOnElement(getAllVendors.get(i));
-				log.info("Selected tab is : " + selectVendor);
+				log.info("Selected vendor is : " + vendor);
+				break;
+			}
+		}
+		return this;
+	}
+	
+	public HomePage selectVendorType(String vendorType) {
+		for (int i = 0; i < getAllVendorType.size(); i++) {
+			if (getAllVendorType.get(i).getText().equals(vendorType)) {
+				clickOnElement(getAllVendorType.get(i));
+				log.info("Selected vendor type is : " + vendorType);
 				break;
 			}
 		}
