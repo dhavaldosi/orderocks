@@ -249,6 +249,40 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(css = "[id='vendor_type'] [class*='owl-item'] [class='text']")
 	List<WebElement> getAllVendorType;
+	
+	
+	@FindBy(css = "[class='ico-account opener']")
+	WebElement customerinfo;
+	
+	@FindBy(css = "[class='customer-orders']")
+	WebElement Orders;
+	
+	@FindBy(xpath = "//*[@class='section order-item'][1] //*[@class='buttons'] /input")
+	WebElement Details;
+	
+	@FindBy(css = "[class='button-1 re-order-button']")
+	WebElement ReOrder;
+	
+	public HomePage clickCustomerInfo() {
+		clickOnElement (customerinfo);
+		return this;
+	}
+	
+	public HomePage clickOrders() {
+		clickOnElement (Orders);
+		return this;
+	}
+	
+	public HomePage clickDetails() {
+		clickOnElement (Details);
+		return this;
+	}
+	
+	public HomePage clickReOrder() {
+		clickOnElement (ReOrder);
+		return this;
+	}
+	
 
 	public HomePage selectMyAccountTab(String selectTab) {
 
@@ -262,22 +296,11 @@ public class HomePage extends BaseClass {
 		return this;
 	}
 
-	public HomePage selectVendor(String vendor) {
+	public HomePage selectVendor(String selectVendor) {
 		for (int i = 0; i < getAllVendors.size(); i++) {
-			if (getAllVendors.get(i).getText().equals(vendor)) {
+			if (getAllVendors.get(i).getText().equals(selectVendor)) {
 				clickOnElement(getAllVendors.get(i));
-				log.info("Selected vendor is : " + vendor);
-				break;
-			}
-		}
-		return this;
-	}
-	
-	public HomePage selectVendorType(String vendorType) {
-		for (int i = 0; i < getAllVendorType.size(); i++) {
-			if (getAllVendorType.get(i).getText().equals(vendorType)) {
-				clickOnElement(getAllVendorType.get(i));
-				log.info("Selected vendor type is : " + vendorType);
+				log.info("Selected tab is : " + selectVendor);
 				break;
 			}
 		}

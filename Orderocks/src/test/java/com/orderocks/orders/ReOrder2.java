@@ -3,6 +3,7 @@ package com.orderocks.orders;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,7 +15,7 @@ import com.orderocks.pages.ThankYouPage;
 import base.Author;
 import base.BaseClass;
 
-public class OrderDetailsTest extends BaseClass {
+public class ReOrder2 extends BaseClass {
 
 	public static Logger log = LogManager.getLogger(BaseClass.class.getName());
 
@@ -24,20 +25,21 @@ public class OrderDetailsTest extends BaseClass {
 		log.info("Driver has initialized.");
 	}
 
-	@Test(description = "Order Details")
-	@Author("Your Name")
-	public void verifyOrderDetails() {
+	@Test(description = "ReOrder2")
+	@Author("Pranita Mode")
+	public void ReOrder2() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		ThankYouPage thankyou = new ThankYouPage(driver);
 		CheckOutPage checkout = new CheckOutPage(driver);
 		login.clickLoginLink().provideCredentials().clickLoginButton();
-		home.clickZipCodeButton().selectVendor("Grocery").getVendorList().selectVendor("Konark Groceries").clickSearchBar()
-				.searchProduct("DEEP FROZEN KESAR MANGO PULP 12OZ").clickSearchIcon().clickAddToCart().clickOnCart();
-		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Delivery").selectSlotOfDelivery().continueShippingAddress()
-				.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
-				.continuePaymentInformation().clickConfirmOrder();
-		thankyou.clickOrderDetails();
+		checkout.clearCartIfProductAlreadyAdded();
+		home.clickCustomerInfo().clickMyAccount().clickOrders().clickDetails().clickReOrder();
+		checkout.clickCheckOut().continueBillingAddress().selectShippingMethod("Self Checkout").continueShippingAddress()
+		.enterCardHolderName().enterCardNumber().selectExpireMonth().entercardCode()
+		.continuePaymentInformation().clickConfirmOrder();
+		
+		Assert.assertEquals(thankyou.getOrderStatus(), "Your order has been successfully processed!");
 	}
 
 	@AfterTest
