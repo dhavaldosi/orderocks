@@ -28,13 +28,14 @@ public class ProductAddToCompareList extends BaseClass {
 
 
 	@Test(description = "Add product into compareList")
-	@Author("Your Name")
-    public void AddToCompareList() {
+	@Author("Naresh")
+    public void addToCompareList() {
     	 LoginPage login = new LoginPage(driver);
   		HomePage home = new HomePage(driver);
   		ThankYouPage thankyou = new ThankYouPage(driver);
   		CheckOutPage checkout = new CheckOutPage(driver);
   		login.clickLoginLink().provideCredentials().clickLoginButton();
+		checkout.clearCartIfProductAlreadyAdded();
  	    home.clickZipCodeButton().selectGrocery().getVendorList().selectShopFromList().searchProduct("Amul Amul Masti Dahi Cup - 400 Gm");
 	     home.clickSearchIcon().clickComparelistIcon().clickCompareList();
 	     Assert.assertEquals(home.getcompareList(), "Amul Amul Masti Dahi Cup - 400 Gm");
