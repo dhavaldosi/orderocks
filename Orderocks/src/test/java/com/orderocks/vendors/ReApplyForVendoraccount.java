@@ -31,11 +31,12 @@ public class ReApplyForVendoraccount extends BaseClass {
     	 LoginPage login = new LoginPage(driver);
   		HomePage home = new HomePage(driver);
   		 login.clickLoginLink().provideCredentials().clickLoginButton();
-  		 home.clickOnApplyForVendorAccount().enterVendorName().clickOnenterVendorEmailaddress().clearExistingEmailaddress().enterVendorEmailaddress()
-  		     .enterVendorDescription().enterVendorContactNumber().enterVendorAddress().enterPickUpInstructions()
-  		     .submitVendorApplication();
-  		   Assert.assertEquals(home.vendorApplicationResult(),
-  					"Your request has been submitted successfully. We'll contact you soon.");
+  		 
+  		 home.clickOnApplyForVendorAccount().enterVendorName("Vendor A").clearExistingEmailaddress().enterVendorEmailAddress("vendora@gmail.com")
+		     .enterVendorDescription("We, Vendor A, supplies an Indian Snacks of rich quality").enterVendorContactNumber("012345678").enterVendorAddress("8660 S Quebec St, Lone Tree, CO 80124, United States").enterPickUpInstructions("Dasher Enter From Back Gate No. 37")
+		     .submitVendorApplication();
+		Assert.assertEquals(home.vendorApplicationResult(),
+			"Your request has been submitted successfully. We'll contact you soon.");
   		   home.clickOnApplyForVendorAccount();
   		   Assert.assertEquals(home.reApplyForVendorAccountResult(),
   					"You already applied for a vendor account. Please register as a new customer in order to apply for one more vendor account.");
