@@ -839,63 +839,55 @@ public class HomePage extends BaseClass {
 
 	}
 
-	public HomePage enterVendorName() {
+	public HomePage enterVendorName(String vendorName) {
 		clickOnElement(enterVendorName);
-		type(enterVendorName, "Vendor A");
+		type(enterVendorName, vendorName);
 		log.info("Entered Vendor Name");
 		return this;
+	
 	}
-
-	public HomePage clickOnenterVendorEmailaddress() {
-		waitForelement(enterVendorEmailAddress);
-		clickOnElement(enterVendorEmailAddress);
-		log.info("clicked On enter Vendor email Address");
-		return this;
-	}
-
+	
 	public HomePage clearExistingEmailaddress() {
 		waitForelement(enterVendorEmailAddress);
 		enterVendorEmailAddress.clear();
 		log.info("Cleared Existing Email Address");
 		return this;
 	}
-
-	public HomePage enterVendorEmailaddress() {
+	public HomePage enterVendorEmailAddress(String vendorEmailAddress) {
 		waitForelement(enterVendorEmailAddress);
 		clickOnElement(enterVendorEmailAddress);
-		type(enterVendorEmailAddress, "vendora@gmail.com");
-		log.info("Entered Vendor Email Address");
+		type(enterVendorEmailAddress, vendorEmailAddress);
+		log.info("Entered Vendor email Address");
 		return this;
-
 	}
 
-	public HomePage enterVendorDescription() {
+	public HomePage enterVendorDescription(String vendorDescription) {
 		waitForelement(enterVendorDescription);
 		clickOnElement(enterVendorDescription);
-		type(enterVendorDescription, "Automation Test-We, Vendor A, supplies an Indian Snacks of rich quality ");
+		type(enterVendorDescription, vendorDescription);
 		return this;
 	}
 
-	public HomePage enterVendorContactNumber() {
+	public HomePage enterVendorContactNumber(String vendorContactNumber ) {
 		waitForelement(enterVendorContactNumber);
 		clickOnElement(enterVendorContactNumber);
-		type(enterVendorContactNumber, "0123456789");
+		type(enterVendorContactNumber, vendorContactNumber);
 		log.info("Entered vendor contact Number");
 		return this;
 	}
 
-	public HomePage enterVendorAddress() {
+	public HomePage enterVendorAddress(String vendorAddress) {
 		waitForelement(enterVendorAddress);
 		clickOnElement(enterVendorAddress);
-		type(enterVendorAddress, " 8660 S Quebec St, Lone Tree, CO 80124, United States");
+		type(enterVendorAddress, vendorAddress);
 		log.info("Entered vendor Address");
 		return this;
 	}
 
-	public HomePage enterPickUpInstructions() {
-		clickOnElement(enterPickUpInstructions);
+	public HomePage enterPickUpInstructions(String pickUpInstructions) {
 		waitForelement(enterPickUpInstructions);
-		type(enterPickUpInstructions, "Dasher Enter From Back Gate No. 37");
+		clickOnElement(enterPickUpInstructions);
+		type(enterPickUpInstructions,pickUpInstructions);
 		log.info("Entered Pick up Instructions");
 		return this;
 	}
