@@ -26,8 +26,8 @@ public class GivingReviewToProduct extends BaseClass {
 	}
 
 	@Test(description = "Giving reviews to the product")
-	@Author("Your Name")
-	public void EnterReviews() {
+	@Author("Naresh")
+	public void enterReviews() {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);
 		CheckOutPage checkout = new CheckOutPage(driver);

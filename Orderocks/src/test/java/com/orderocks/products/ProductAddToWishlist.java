@@ -28,16 +28,17 @@ public class ProductAddToWishlist extends BaseClass {
 
 
 	@Test(description = "Add product into Wishlist")
-	@Author("Your Name")
-    public void AddToWishList() {
+	@Author("Naresh")
+    public void addToWishList() {
     	 LoginPage login = new LoginPage(driver);
   		HomePage home = new HomePage(driver);
   		ThankYouPage thankyou = new ThankYouPage(driver);
   		CheckOutPage checkout = new CheckOutPage(driver);
   		login.clickLoginLink().provideCredentials().clickLoginButton();
+		checkout.clearCartIfProductAlreadyAdded();
  	    home.clickZipCodeButton().selectGrocery().getVendorList().selectShopFromList().searchProduct("Amul Amul Masti Dahi Cup - 400 Gm");
 	     home.clickSearchIcon().clickWishlist().clickWishlistIcon();
-	     Assert.assertEquals(home.getwishlist(), "Amul Ghee/Tuppa, 1 L Pouch");
+	     Assert.assertEquals(home.getwishlist(), "Amul Amul Masti Dahi Cup - 400 Gm");
        // Assert.assertTrue(home.getwishlist().contains("Amul"));
      }
 
